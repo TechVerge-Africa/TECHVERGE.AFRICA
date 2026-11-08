@@ -1,33 +1,53 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import BannerAwareLayout from '@/components/BannerAwareLayout';
-import { CartProvider } from '@/context/CartContext';
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space' });
+import WhatsAppBot from '@/components/WhatsAppBot';
 
 export const metadata: Metadata = {
-  title: 'TechVerge Africa | Building AI & Digital Infrastructure',
-  description: 'TechVerge Africa is a world-class technology company building digital infrastructure, AI systems, and intelligent platforms that empower the future of Africa.',
-  keywords: ['TechVerge Africa', 'AI', 'Robotics', 'Digital Infrastructure', 'Africa Tech', 'Innovation', 'Intelligent Systems'],
-  authors: [{ name: 'TechVerge Africa' }],
+  metadataBase: new URL('https://techverge.africa'),
+  title: {
+    default: 'Techverge Africa Ltd | Engineering the Future of African Enterprise',
+    template: '%s | Techverge Africa Ltd',
+  },
+  description:
+    'Techverge Africa Ltd delivers production-grade software development, secure cloud infrastructure, and custom AI integrations built to scale your business across the continent.',
+  keywords: [
+    'Techverge Africa Ltd',
+    'Ghana software development',
+    'Kumasi tech company',
+    'Enterprise software Ghana',
+    'Cloud computing Africa',
+    'Artificial intelligence Africa',
+    'IT consultancy Kumasi',
+    'Digital transformation Africa',
+  ],
+  authors: [{ name: 'Techverge Africa Ltd', url: 'https://techverge.africa' }],
+  creator: 'Techverge Africa Ltd',
+  publisher: 'Techverge Africa Ltd',
   openGraph: {
-    title: 'TechVerge Africa | Building AI & Digital Infrastructure',
-    description: 'Empowering Africa and the world through AI, Digital Infrastructure, and Intelligent Systems.',
-    url: 'https://techvergeafrica.com',
-    siteName: 'TechVerge Africa',
+    type: 'website',
+    locale: 'en_GH',
+    url: 'https://techverge.africa',
+    siteName: 'Techverge Africa Ltd',
+    title: 'Techverge Africa Ltd | Engineering the Future of African Enterprise',
+    description:
+      'Techverge Africa Ltd delivers production-grade software development, secure cloud infrastructure, and custom AI integrations built to scale your business across the continent.',
     images: [
       {
-        url: '/images/hero.png',
-        width: 1200,
-        height: 630,
+        url: '/images/logo.png',
+        width: 563,
+        height: 400,
+        alt: 'Techverge Africa Ltd Logo',
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Techverge Africa Ltd | Engineering the Future of African Enterprise',
+    description:
+      'Production-grade software development, secure cloud infrastructure, and custom AI integrations built for African enterprise.',
+    images: ['/images/logo.png'],
   },
   icons: {
     icon: [
@@ -35,9 +55,7 @@ export const metadata: Metadata = {
       { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
       { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
     ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 };
 
@@ -48,16 +66,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-inter antialiased bg-tech-dark text-white`}>
-        <CartProvider>
-          <div className="relative min-h-screen overflow-x-hidden">
-            <BannerAwareLayout>
-              <Navbar />
-              <main>{children}</main>
-            </BannerAwareLayout>
-            <Footer />
-          </div>
-        </CartProvider>
+      <body className="min-h-screen bg-white text-slate-800 font-sans antialiased selection:bg-tech-accent selection:text-white flex flex-col">
+        {/* Skip to main content for accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-tech-accent text-white font-semibold rounded-md shadow-lg outline-none"
+        >
+          Skip to main content
+        </a>
+        <Navbar />
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
+        <Footer />
+        <WhatsAppBot />
       </body>
     </html>
   );

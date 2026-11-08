@@ -1,131 +1,171 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { X, Globe, Code2, Camera, Send, Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, Phone, MapPin, Building, ArrowUpRight } from 'lucide-react';
 
-const Footer = () => {
-  const socials = [
-    { name: 'Twitter', icon: X },
-    { name: 'LinkedIn', icon: Globe },
-    { name: 'Github', icon: Code2 },
-    { name: 'Instagram', icon: Camera },
-  ];
+export default function Footer() {
+  const currentYear = 2026;
 
   return (
-    <footer className="relative bg-tech-deep pt-20 pb-10 overflow-hidden border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-        {/* Brand Info */}
-        <div className="flex flex-col gap-6">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-10 h-10">
-              <Image 
-                src="/images/logo.png" 
-                alt="TechVerge Africa Logo" 
-                fill
-                className="object-contain"
-              />
-            </div>
-            <span className="text-xl font-bold tracking-tight">TechVerge Africa</span>
-          </Link>
-          <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-            Building intelligent systems that empower Africa and the world.
-          </p>
-          <div className="flex gap-4">
-            {socials.map((social) => (
-              <a
-                key={social.name}
-                href="#"
-                aria-label={`Follow us on ${social.name}`}
-                className="w-10 h-10 rounded-xl flex items-center justify-center border border-white/5 bg-white/[0.02] hover:border-tech-accent/50 hover:text-tech-accent transition-all duration-500 group"
-              >
-                <social.icon size={18} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
-              </a>
-            ))}
-          </div>
-        </div>
+    <footer className="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800 font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 pb-14 border-b border-slate-800">
+          
+          {/* Column 1: Company Name & Pitch (5 cols) */}
+          <div className="md:col-span-5 space-y-5">
+            <Link href="/" className="inline-flex items-center gap-3">
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden bg-white/10 p-1 flex items-center justify-center">
+                <Image
+                  src="/images/logo.png"
+                  alt="Techverge Africa Ltd"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xl font-extrabold text-white tracking-tight">
+                Techverge<span className="text-tech-accent font-black">.</span>
+              </span>
+            </Link>
 
-        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div>
-            <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest">Platform</h4>
-            <ul className="flex flex-col gap-4">
-              {[{ name: 'About', href: '/#about' }, { name: 'Services', href: '/#services' }, { name: 'Research', href: '/research' }].map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 text-sm hover:text-tech-accent transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+              <strong className="text-white font-semibold">Techverge Africa Ltd.</strong> We build innovative solutions through research for Africa and the world—engineering next-generation software, cloud, and AI solutions.
+            </p>
 
-          <div>
-            <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest">Connect</h4>
-            <ul className="flex flex-col gap-4">
-              {[{ name: 'Careers', href: '/careers' }, { name: 'Community', href: '/#community' }, { name: 'Join', href: '/join' }].map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 text-sm hover:text-tech-accent transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest">Contact Us</h4>
-            <ul className="flex flex-col gap-4 text-sm text-gray-400">
-              <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-tech-accent shrink-0 mt-0.5" />
-                <span>Kumasi, Ghana</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail size={18} className="text-tech-accent shrink-0" />
-                <a href="mailto:info@techverge.africa" className="hover:text-tech-accent transition-colors">
+            {/* Direct Channels */}
+            <div className="pt-2 space-y-2 text-xs font-mono text-slate-400">
+              <div className="flex items-center gap-2">
+                <Mail size={14} className="text-tech-accent shrink-0" />
+                <a
+                  href="mailto:info@techverge.africa"
+                  className="hover:text-white transition-colors"
+                >
                   info@techverge.africa
                 </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone size={14} className="text-tech-accent shrink-0" />
+                <span>+233 59 150 7448 / +233 24 981 9285</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 2: Quick Links (3 cols) */}
+          <div className="md:col-span-3 space-y-4">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+              Navigation
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link
+                  href="/services"
+                  className="text-slate-400 hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Services</span>
+                  <span className="text-slate-600 group-hover:text-tech-accent text-xs">➔</span>
+                </Link>
               </li>
-              <li className="flex items-start gap-3">
-                <Phone size={18} className="text-tech-accent shrink-0 mt-0.5" />
-                <div className="flex flex-col gap-1">
-                  <a href="tel:+233591507448" className="hover:text-tech-accent transition-colors font-mono">
-                    +233 59 150 7448
-                  </a>
-                  <a href="tel:+233249819285" className="hover:text-tech-accent transition-colors font-mono">
-                    +233 24 981 9285
-                  </a>
-                </div>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-slate-400 hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>About Us</span>
+                  <span className="text-slate-600 group-hover:text-tech-accent text-xs">➔</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/insights"
+                  className="text-slate-400 hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Insights</span>
+                  <span className="text-slate-600 group-hover:text-tech-accent text-xs">➔</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-slate-400 hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Privacy Policy</span>
+                  <span className="text-slate-600 group-hover:text-tech-accent text-xs">➔</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms"
+                  className="text-slate-400 hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Terms of Service</span>
+                  <span className="text-slate-600 group-hover:text-tech-accent text-xs">➔</span>
+                </Link>
               </li>
             </ul>
           </div>
+
+          {/* Column 3: Corporate Presence & Location (4 cols) */}
+          <div className="md:col-span-4 space-y-4">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white flex items-center gap-2">
+              <Building size={14} className="text-tech-accent" />
+              <span>Headquarters &amp; Presence</span>
+            </h4>
+
+            <div className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-3 text-xs leading-relaxed">
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">
+                  Location
+                </span>
+                <p className="text-slate-200 font-bold text-sm mt-0.5">
+                  Kumasi, Ghana
+                </p>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  Ashanti Region &middot; West Africa
+                </p>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500">
+                  Legal Structure
+                </span>
+                <span className="font-mono text-slate-300 text-xs font-semibold">
+                  Registered Private Ltd &middot; Ghana
+                </span>
+              </div>
+            </div>
+
+            <a
+              href="https://wa.me/233591507448"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs font-bold text-emerald-400 hover:text-emerald-300 transition-colors"
+            >
+              <span>Instant WhatsApp Inquiry</span>
+              <ArrowUpRight size={13} />
+            </a>
+          </div>
+
         </div>
 
-        {/* Newsletter */}
-        <div>
-          <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest">Newsletter</h4>
-          <p className="text-gray-400 text-sm mb-4">Stay updated with our latest innovations.</p>
-          <form className="flex flex-col gap-3">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-tech-accent/50 transition-all text-white"
-            />
-            <button className="bg-tech-accent text-tech-dark font-bold py-2.5 rounded-lg hover:shadow-[0_0_15px_rgba(0,242,255,0.4)] transition-all">
-              Subscribe
-            </button>
-          </form>
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p className="font-mono">
+            &copy; {currentYear} Techverge Africa Ltd. All Rights Reserved.
+          </p>
+          <div className="flex items-center gap-6 font-medium">
+            <Link href="/privacy" className="hover:text-slate-300 transition-colors">
+              Privacy Policy
+            </Link>
+            <span>&middot;</span>
+            <Link href="/terms" className="hover:text-slate-300 transition-colors">
+              Terms of Service
+            </Link>
+            <span>&middot;</span>
+            <Link href="/contact" className="hover:text-slate-300 transition-colors">
+              Contact Us
+            </Link>
+          </div>
         </div>
-      </div>
-
-      {/* Copyright */}
-      <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-gray-500 text-xs text-center md:text-left">
-          © 2026 TechVerge Africa. All rights reserved.
-        </p>
-        <p className="text-gray-500 text-xs font-bold tracking-[0.3em] uppercase">
-          Built by <span className="text-white">TechVergers.</span>
-        </p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

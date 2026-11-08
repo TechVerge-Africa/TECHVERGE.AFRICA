@@ -6,19 +6,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'media.licdn.com',
         port: '',
-        pathname: '/dms/image/v2/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-        port: '',
         pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'api.dicebear.com',
-        port: '',
-        pathname: '/7.x/**',
       },
       {
         protocol: 'https',
@@ -46,13 +34,21 @@ const nextConfig = {
             value: 'DENY',
           },
           {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
             key: 'Content-Security-Policy',
-            value: `default-src 'self' cdn.techverge.africa 'unsafe-inline' 'unsafe-eval' data:; img-src 'self' data: https:;`,
-          }
+            value: `default-src 'self' cdn.techverge.africa 'unsafe-inline' 'unsafe-eval' data:; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;`,
+          },
         ],
       },
-    ]
-  }
+    ];
+  },
 };
 
 module.exports = nextConfig;

@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 :root {
-  --background: #121212;
-  --foreground: #e0e0e0;
+  --background: #FFFFFF;
+  --foreground: #0F172A;
   --accent: #1D64EC;
-  --accent-green: #22C55E;
-  --accent-orange: #FF6D00;
-  --banner-height: 44px;
+  --accent-hover: #1551c6;
 }
 
 * {
@@ -21,20 +21,25 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--banner-height) + 80px);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-space), sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  color: #0F172A;
+  font-weight: 800;
 }
 
 ::selection {
   background: var(--accent);
-  color: var(--background);
+  color: #ffffff;
 }
 
 /* Custom Scrollbar */
@@ -43,53 +48,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1a1a1a;
-  border-radius: 10px;
+  background: #CBD5E1;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
-}
-
-/* Noir Elevation System */
-.glass {
-  background: rgba(40, 40, 40, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass-dark {
-  background: rgba(20, 20, 20, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* AI Grid Background */
-.bg-grid {
-  background-size: 50px 50px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-}
-
-/* Noir Text Elevation */
-.text-glow {
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
-}
-
-/* Hero Particles Container */
-#hero-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
 }

@@ -1,0 +1,294 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  Target,
+  Compass,
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+} from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'About Us | Techverge Africa Ltd',
+  description:
+    'Driving digital evolution from the heart of Ashanti. Learn about Techverge Africa Ltd, our mission, vision, and engineering leadership in Kumasi, Ghana.',
+};
+
+const executiveLeadership = [
+  {
+    name: 'Abdul Latif Sulley',
+    role: 'Co-founder & Chief Executive Officer',
+    badge: 'CO-FOUNDER & CEO',
+    focus: 'Enterprise Systems Architecture & Corporate Strategy',
+    image: '/images/team/latif.jpg',
+    bio: 'Systems engineer and technology entrepreneur based in Kumasi, Ghana. Directs corporate strategy and engineering standards across software, cloud infrastructure, and artificial intelligence initiatives for African enterprise.',
+    linkedin: 'https://www.linkedin.com/in/abdul-latif-sulley',
+    github: 'https://github.com/asulley',
+    isLead: true,
+  },
+  {
+    name: 'Robert Samuel Aggrey',
+    role: 'Secretary & Customer Relations',
+    badge: 'EXECUTIVE SECRETARY',
+    focus: 'Corporate Governance & Institutional Client Success',
+    image: '/images/team/robert.jpg',
+    bio: 'Oversees corporate administration, enterprise client onboarding, and customer relations. Ensures transparent stakeholder communication, regulatory compliance, and seamless operational coordination.',
+    linkedin: 'https://linkedin.com',
+    github: 'https://github.com',
+    isLead: false,
+  },
+  {
+    name: 'Is-haq Abdul-Moomin',
+    role: 'Technical Lead & Co-founder',
+    badge: 'CO-FOUNDER & TECH LEAD',
+    focus: 'Full-Stack Architecture & Engineering Operations',
+    image: '/images/team/ishaq.jpg',
+    bio: 'Senior systems architect and co-founder directing engineering delivery, system security, and developer operations. Leads technical design for scalable backend APIs and high-concurrency enterprise applications.',
+    linkedin: 'https://linkedin.com',
+    github: 'https://github.com',
+    isLead: false,
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <div className="flex flex-col w-full bg-white text-slate-800">
+      {/* ── HEADER ── */}
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-slate-50 via-white to-slate-50/60 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+              Driving Digital Evolution from the{' '}
+              <span className="text-tech-accent">Heart of Ashanti.</span>
+            </h1>
+            <p className="text-lg text-slate-600 leading-relaxed font-medium">
+              We build innovative solutions through research for Africa and the world—engineering the technological backbone that allows African enterprises, institutions, and builders to lead on the global stage.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── OUR STORY & ORIGINS ── */}
+      <section className="py-20 md:py-28 bg-slate-50/60 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
+            
+            {/* Story Copy (7 cols) */}
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-tech-accent block">
+                Company Origins
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Driving Digital Evolution from the Heart of Ashanti.
+              </h2>
+              
+              <div className="space-y-4 text-base text-slate-600 leading-relaxed">
+                <p>
+                  Incorporated in the Republic of Ghana, <strong>Techverge Africa Ltd</strong> was founded with a singular, disruptive vision: to build the foundational software ecosystem that will power Africa&apos;s digital economy. We build innovative solutions through research for Africa and the world.
+                </p>
+                <p>
+                  Headquartered in Kumasi, we combine deep, localized regional insights with global technology standards. We don&apos;t just act as vendors; we step in as dedicated technology partners to forward-thinking enterprises, growing startups, and public institutions looking to make an impact.
+                </p>
+                <p>
+                  By treating software architecture, enterprise cloud, and practical artificial intelligence as interconnected systems, we help organizations break through infrastructural barriers and achieve sustained operational sovereignty.
+                </p>
+              </div>
+
+              {/* Official Credibility Box */}
+              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2 text-xs font-mono text-slate-700">
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-500">Corporate Entity:</span>
+                  <span className="font-bold text-slate-900">Techverge Africa Ltd</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-500">Corporate Status:</span>
+                  <span className="font-bold text-tech-accent">Registered Private Limited Company</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-500">Headquarters:</span>
+                  <span className="text-slate-900 font-semibold">Kumasi, Ghana</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Visual Photography Column (5 cols) */}
+            <div className="lg:col-span-5">
+              <div className="relative h-96 sm:h-[460px] w-full rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-slate-100">
+                <Image
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
+                  alt="Techverge Africa engineering workspace"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+          </div>
+
+          {/* ── MISSION & VISION CARDS ── */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Mission */}
+            <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200/60 flex items-center justify-center text-tech-accent">
+                  <Target size={24} />
+                </div>
+                <span className="text-xs font-mono font-bold uppercase tracking-widest text-tech-accent block">
+                  Strategic Mission
+                </span>
+                <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                  Our Mission
+                </h3>
+                <p className="text-base text-slate-600 leading-relaxed font-medium">
+                  To accelerate African digital transformation by delivering resilient software products and high-impact IT infrastructure.
+                </p>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-mono text-slate-500">
+                <CheckCircle2 size={14} className="text-tech-accent" />
+                <span>Execution-driven engineering roadmap</span>
+              </div>
+            </div>
+
+            {/* Vision */}
+            <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200/60 flex items-center justify-center text-indigo-600">
+                  <Compass size={24} />
+                </div>
+                <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-600 block">
+                  Continental Ambition
+                </span>
+                <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                  Our Vision
+                </h3>
+                <p className="text-base text-slate-600 leading-relaxed font-medium">
+                  To evolve into Africa&apos;s leading tech conglomerate, fostering innovation, engineering breakthrough products, and backing the next generation of tech builders.
+                </p>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-mono text-slate-500">
+                <CheckCircle2 size={14} className="text-indigo-600" />
+                <span>Building for multi-generational scale</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── LEADERSHIP & TEAM ── */}
+      <section className="py-20 md:py-28 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
+            <div>
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-tech-accent block mb-2">
+                Executive Leadership
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                The Architects of Techverge Africa
+              </h2>
+            </div>
+            <div className="text-xs font-mono text-slate-600 bg-slate-100 px-3.5 py-1.5 rounded-xl border border-slate-200 w-fit">
+              Headquarters: Kumasi, Ghana
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {executiveLeadership.map((member) => (
+              <div
+                key={member.name}
+                className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden flex flex-col justify-between hover:border-tech-accent/40 shadow-sm transition-all duration-300 group"
+              >
+                <div>
+                  <div className="relative w-full aspect-square overflow-hidden bg-slate-800">
+                    <Image
+                      src={member.image}
+                      alt={`${member.name} - ${member.role}`}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute top-3 left-3 text-[10px] font-mono font-bold text-white bg-tech-accent px-2.5 py-1 rounded-md shadow-xs">
+                      {member.badge}
+                    </span>
+                  </div>
+
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-slate-900 mb-0.5">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs font-semibold text-tech-accent mb-1 font-mono">
+                      {member.role}
+                    </p>
+                    <p className="text-[11px] text-slate-500 mb-3 font-medium">
+                      {member.focus}
+                    </p>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {member.bio}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="px-6 pb-6 pt-3 border-t border-slate-200/80 flex items-center gap-3 text-xs">
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-slate-500 hover:text-tech-accent transition-colors font-medium"
+                    aria-label={`${member.name} LinkedIn Profile`}
+                  >
+                    <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.4 1.4 0 1 0-.01-2.8 1.4 1.4 0 0 0 .01 2.8m1.4 9.74v-8.37H5.06v8.37z" />
+                    </svg>
+                    <span>LinkedIn</span>
+                  </a>
+                  <span className="text-slate-300">&middot;</span>
+                  <a
+                    href={member.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-slate-500 hover:text-tech-accent transition-colors font-medium"
+                    aria-label={`${member.name} GitHub Profile`}
+                  >
+                    <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                    </svg>
+                    <span>GitHub</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ABOUT CTA ── */}
+      <section className="py-24 md:py-32 bg-slate-50 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
+            Partner with an engineering team that understands your reality.
+          </h2>
+          <p className="text-slate-600 text-base max-w-xl mx-auto mb-10 leading-relaxed">
+            Let&apos;s build production-grade technology that scales across African markets.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-tech-accent text-white font-bold text-sm hover:bg-tech-accentHover transition-colors shadow-sm"
+            >
+              <span>Book a Consultation</span>
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/services"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-slate-800 font-bold text-sm border border-slate-200 transition-colors shadow-2xs"
+            >
+              <span>Explore Our Services</span>
+              <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

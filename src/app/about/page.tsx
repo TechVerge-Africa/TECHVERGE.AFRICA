@@ -23,7 +23,7 @@ const executiveLeadership = [
     badge: 'CO-FOUNDER & CEO',
     focus: 'Enterprise Systems Architecture & Corporate Strategy',
     image: '/images/team/latif.jpg',
-    bio: 'Systems engineer and technology entrepreneur based in Kumasi, Ghana. Directs corporate strategy and engineering standards across software, cloud infrastructure, and artificial intelligence initiatives for African enterprise.',
+    bio: 'Systems engineer and technology entrepreneur. Directs corporate strategy and engineering standards across software, cloud infrastructure, and artificial intelligence initiatives for African enterprise.',
     linkedin: 'https://www.linkedin.com/in/abdul-latif-sulley',
     github: 'https://github.com/asulley',
     isLead: true,
@@ -82,7 +82,7 @@ export default function AboutPage() {
                 Company Origins
               </span>
               <h2 className="text-h2">
-                Driving Digital Evolution from the Heart of Ashanti.
+                Our Story
               </h2>
               
               <div className="space-y-4 text-base text-ink-muted leading-relaxed">
@@ -190,9 +190,6 @@ export default function AboutPage() {
               <h2 className="text-h2">
                 The Architects of Techverge Africa
               </h2>
-            </div>
-            <div className="text-xs text-ink-muted bg-surface-2 px-3.5 py-1.5 rounded-button border border-line w-fit">
-              Headquarters: Kumasi, Ghana
             </div>
           </div>
 

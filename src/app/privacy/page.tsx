@@ -85,7 +85,6 @@ export default function PrivacyPage() {
             <div className="p-4 rounded-button bg-surface-0 border border-line text-xs text-ink space-y-1">
               <p>Email: <a href="mailto:info@techverge.africa" className="text-action-primary underline">info@techverge.africa</a></p>
               <p>Phone: +233 59 150 7448</p>
-              <p>Location: Kumasi, Ghana</p>
             </div>
           </div>
 

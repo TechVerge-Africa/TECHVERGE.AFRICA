@@ -153,12 +153,6 @@ export default function Navbar() {
               <span>Book a Consultation</span>
               <ArrowRight size={18} strokeWidth={1.75} aria-hidden="true" />
             </Link>
-
-            <div className="text-center">
-              <p className="text-sm text-ink-muted">
-                Techverge Africa Ltd · Kumasi, Ghana
-              </p>
-            </div>
           </div>
         </div>
       )}

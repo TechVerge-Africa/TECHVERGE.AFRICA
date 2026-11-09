@@ -246,7 +246,7 @@ export default function ServicesPage() {
             Ready to modernize your infrastructure?
           </h2>
           <p className="text-ink-muted text-base max-w-xl mx-auto mb-10 leading-relaxed">
-            Schedule a technical discovery session with our engineering leads in Kumasi to discuss your roadmap, timeline, and budget.
+            Schedule a technical discovery session with our engineering leads to discuss your roadmap, timeline, and budget.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

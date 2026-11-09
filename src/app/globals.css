@@ -67,6 +67,27 @@
     @apply block font-sans text-label font-bold uppercase text-action-primary;
   }
 
+  /* Page loader: spinning brand arcs around the V mark */
+  .tv-loader-spin {
+    animation: tv-spin 1.4s linear infinite;
+  }
+  .tv-loader-breathe {
+    animation: tv-breathe 2.4s ease-in-out infinite;
+  }
+  @keyframes tv-spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes tv-breathe {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.96); opacity: 0.85; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tv-loader-spin,
+    .tv-loader-breathe {
+      animation: none !important;
+    }
+  }
+
   /* One short Spark Orange line: the single orange accent in a view */
   .accent-line {
     @apply mb-6 block h-1 w-12 rounded-full bg-brand-orange;

@@ -381,9 +381,6 @@ export default function HomePage() {
                   <span className="bg-white/10 px-3.5 py-2 rounded-button border border-white/15">
                     Techverge Africa Ltd &middot; Registered in Ghana
                   </span>
-                  <span className="bg-white/10 px-3.5 py-2 rounded-button border border-white/15">
-                    Headquarters: Kumasi, Ghana
-                  </span>
                   <span className="bg-white/10 px-3.5 py-2 rounded-button border border-white/15 text-brand-green-bright font-bold">
                     Production-Grade Engineering
                   </span>
@@ -415,7 +412,7 @@ export default function HomePage() {
             Let&apos;s Build Something Massive Together.
           </h2>
           <p className="text-ink-muted text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-            Tell us about your project requirements, technical challenges, or scaling goals. Our engineering team in Kumasi will review your brief and get back to you within 24 hours.
+            Tell us about your project requirements, technical challenges, or scaling goals. Our engineering team will review your brief and get back to you within 24 hours.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

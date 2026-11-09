@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppBot from '@/components/WhatsAppBot';
+import PageLoader from '@/components/PageLoader';
 
 // Brand typefaces: Sora for headings (Semi Bold, Bold), DM Sans for text (Regular, Medium, Bold).
 const sora = Sora({ subsets: ['latin'], weight: ['400', '600', '700'], variable: '--font-sora', display: 'swap' });
@@ -79,6 +80,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <PageLoader />
         <Navbar />
         <main id="main-content" className="flex-1">
           {children}

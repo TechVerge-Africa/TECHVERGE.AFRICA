@@ -21,7 +21,7 @@ export default function ContactPage() {
               Let&apos;s Build Something <span className="text-action-primary">Massive Together.</span>
             </h1>
             <p className="text-lg text-ink-muted leading-relaxed">
-              We build innovative solutions through research for Africa and the world. Tell us about your project requirements, technical challenges, or scaling goals. Our engineering team in Kumasi will review and get back to you within 24 hours.
+              We build innovative solutions through research for Africa and the world. Tell us about your project requirements, technical challenges, or scaling goals. Our engineering team will review and get back to you within 24 hours.
             </p>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function ContactPage() {
                   Let&apos;s discuss your project
                 </h2>
                 <p className="text-sm text-ink-muted leading-relaxed">
-                  Whether you need custom software, cloud infrastructure, AI solutions, or strategic consulting, our team in Kumasi is ready to collaborate.
+                  Whether you need custom software, cloud infrastructure, AI solutions, or strategic consulting, our team is ready to collaborate.
                 </p>
               </div>
 
@@ -140,7 +140,7 @@ export default function ContactPage() {
                     Consultation &amp; Scoping Hub
                   </span>
                   <p className="text-xs font-semibold text-white">
-                    Kumasi, Ghana &middot; On-Site &amp; Pan-African Remote Deployments
+                    On-Site &amp; Pan-African Remote Deployments
                   </p>
                 </div>
               </div>

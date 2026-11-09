@@ -73,7 +73,7 @@ export default function ContactForm() {
             Thank you, {formData.fullName}.
           </h3>
           <p className="text-sm text-ink-muted max-w-md mx-auto leading-relaxed">
-            Your message has been sent successfully. Our team in Kumasi has received your details and will get back to you within 24 hours.
+            Your message has been sent successfully. Our team has received your details and will get back to you within 24 hours.
           </p>
         </div>
 

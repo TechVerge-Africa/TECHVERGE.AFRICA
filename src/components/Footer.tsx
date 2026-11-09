@@ -118,7 +118,7 @@ export default function Footer() {
                   Legal Structure
                 </span>
                 <span className="text-white/90 font-medium text-right">
-                  Registered Private Ltd &middot; Ghana
+                  Registered Private Ltd
                 </span>
               </div>
             </div>

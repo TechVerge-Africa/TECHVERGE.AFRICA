@@ -129,7 +129,7 @@ export default function WhatsAppBot() {
       {
         id: `bot-${Date.now() + 1}`,
         sender: 'bot',
-        text: 'Opening WhatsApp to connect you directly with our team in Kumasi...',
+        text: 'Opening WhatsApp to connect you directly with our team...',
         time: now,
       },
     ]);
@@ -210,7 +210,7 @@ export default function WhatsAppBot() {
                     </span>
                   </div>
                   <p className="text-[11px] text-brand-green-bright font-medium truncate">
-                    WhatsApp Support · Kumasi, Ghana
+                    WhatsApp Support
                   </p>
                 </div>
               </div>

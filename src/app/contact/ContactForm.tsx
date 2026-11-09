@@ -64,15 +64,15 @@ export default function ContactForm() {
     );
 
     return (
-      <div className="p-8 sm:p-10 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-6">
-        <div className="w-14 h-14 rounded-full bg-tech-accent text-white flex items-center justify-center mx-auto shadow-sm">
-          <CheckCircle2 size={32} />
+      <div className="p-8 sm:p-10 rounded-card bg-surface-0 border border-line text-center space-y-6">
+        <div className="w-14 h-14 rounded-full bg-action-primary text-white flex items-center justify-center mx-auto">
+          <CheckCircle2 strokeWidth={1.75} size={32} />
         </div>
         <div className="space-y-2">
-          <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
+          <h3 className="text-h3">
             Thank you, {formData.fullName}.
           </h3>
-          <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+          <p className="text-sm text-ink-muted max-w-md mx-auto leading-relaxed">
             Your message has been sent successfully. Our team in Kumasi has received your details and will get back to you within 24 hours.
           </p>
         </div>
@@ -82,10 +82,10 @@ export default function ContactForm() {
             href={`https://wa.me/233591507448?text=${whatsappText}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-xs transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-button bg-action-primary hover:bg-action-hover text-white font-bold text-xs transition-colors"
           >
             <span>Message via WhatsApp (+233 59 150 7448)</span>
-            <ArrowUpRight size={14} />
+            <ArrowUpRight strokeWidth={1.75} size={14} />
           </a>
           <button
             type="button"
@@ -100,7 +100,7 @@ export default function ContactForm() {
                 message: '',
               });
             }}
-            className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs border border-slate-300 transition-colors"
+            className="w-full sm:w-auto px-5 py-3 rounded-button bg-surface-1 hover:bg-surface-2 text-ink font-semibold text-xs border border-line transition-colors"
           >
             Send Another Message
           </button>
@@ -109,15 +109,15 @@ export default function ContactForm() {
     );
   }
 
-  const labelCls = 'block text-xs font-semibold text-slate-700 mb-1.5';
+  const labelCls = 'block text-xs font-semibold text-ink mb-1.5';
   const inputCls =
-    'w-full px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-tech-accent focus:ring-2 focus:ring-tech-accent/20 transition-all';
+    'w-full px-4 py-2.5 rounded-button bg-surface-1 border border-line text-ink placeholder:text-ink-muted/70 text-sm focus:outline-none focus:border-action-primary focus:ring-2 focus:ring-action-primary/20 transition-all';
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5" noValidate>
       {errorMsg && (
-        <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
-          <AlertCircle size={16} className="shrink-0" />
+        <div className="p-3.5 rounded-button bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
+          <AlertCircle strokeWidth={1.75} size={16} className="shrink-0" />
           <span>{errorMsg}</span>
         </div>
       )}
@@ -126,7 +126,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="fullName" className={labelCls}>
-            Full Name <span className="text-tech-accent">*</span>
+            Full Name <span className="text-action-primary">*</span>
           </label>
           <input
             type="text"
@@ -160,7 +160,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="email" className={labelCls}>
-            Email Address <span className="text-tech-accent">*</span>
+            Email Address <span className="text-action-primary">*</span>
           </label>
           <input
             type="email"
@@ -209,8 +209,8 @@ export default function ContactForm() {
               </option>
             ))}
           </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-500">
-            <ChevronDown size={16} />
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-ink-muted">
+            <ChevronDown strokeWidth={1.75} size={16} />
           </div>
         </div>
       </div>
@@ -218,7 +218,7 @@ export default function ContactForm() {
       {/* Row 4: Message */}
       <div>
         <label htmlFor="message" className={labelCls}>
-          Project Details / Message <span className="text-tech-accent">*</span>
+          Project Details / Message <span className="text-action-primary">*</span>
         </label>
         <textarea
           id="message"
@@ -237,19 +237,19 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-tech-accent hover:bg-tech-accentHover active:scale-95 text-white font-bold text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-tech-accent disabled:opacity-50 shadow-sm"
+          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-button bg-action-primary hover:bg-action-hover active:scale-95 text-white font-bold text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-action-primary disabled:opacity-50"
         >
           {isSubmitting ? (
             <span>Sending...</span>
           ) : (
             <>
               <span>Send Message</span>
-              <Send size={15} />
+              <Send strokeWidth={1.75} size={15} />
             </>
           )}
         </button>
 
-        <p className="text-xs text-slate-500 font-normal">
+        <p className="text-xs text-ink-muted font-normal">
           We respect your privacy &middot; Response within 24 hours
         </p>
       </div>

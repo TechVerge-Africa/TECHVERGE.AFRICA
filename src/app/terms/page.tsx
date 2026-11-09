@@ -10,38 +10,39 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="flex flex-col w-full bg-white text-slate-800">
+    <div className="flex flex-col w-full bg-surface-1 text-ink">
       {/* ── HEADER ── */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-slate-50 via-white to-slate-50/60 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-20 bg-surface-1 border-b border-line">
+        <div className="container-site max-w-4xl">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs font-bold text-tech-accent hover:underline mb-6 font-mono"
+            className="inline-flex items-center gap-2 text-xs font-bold text-action-primary hover:underline mb-6"
           >
-            <ArrowLeft size={14} />
+            <ArrowLeft strokeWidth={1.75} size={14} />
             <span>Back to Home</span>
           </Link>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+          <span className="accent-line" aria-hidden="true" />
+          <h1 className="text-h1 mb-4">
             Terms of Service
           </h1>
-          <p className="text-sm font-mono text-slate-500">
+          <p className="text-sm text-ink-muted">
             Techverge Africa Ltd &middot; Effective Date: October 2026 &middot; Version 2.0
           </p>
         </div>
       </section>
 
       {/* ── CONTENT ── */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-slate-700 leading-relaxed text-sm sm:text-base">
+      <section className="py-16 md:py-24 bg-surface-1">
+        <div className="container-site max-w-4xl space-y-10 text-ink leading-relaxed text-sm sm:text-base">
           
-          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs font-mono text-slate-700">
-            <p className="font-bold text-slate-900 text-sm">Contracting Entity:</p>
+          <div className="p-5 rounded-card bg-surface-0 border border-line space-y-2 text-xs text-ink">
+            <p className="font-bold text-ink text-sm">Contracting Entity:</p>
             <p>Techverge Africa Ltd &middot; Registered Private Limited Company</p>
             <p>Governing Law: Republic of Ghana &middot; Jurisdiction: Courts of Ghana</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+            <h2 className="text-h3">
               1. Engagement &amp; Scope of Work
             </h2>
             <p>
@@ -50,20 +51,20 @@ export default function TermsPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+            <h2 className="text-h3">
               2. Intellectual Property Ownership
             </h2>
             <p>
               Unless explicitly specified otherwise in a bespoke engagement agreement:
             </p>
-            <ul className="list-disc pl-5 space-y-2 text-slate-600">
+            <ul className="list-disc pl-5 space-y-2 text-ink-muted">
               <li><strong>Custom Developed Deliverables:</strong> Upon receipt of full settlement, all custom source code, documentation, schema configurations, and UI assets engineered exclusively for the client transfer to full client ownership.</li>
               <li><strong>Pre-Existing Frameworks:</strong> Techverge Africa Ltd retains ownership of proprietary developer utilities, boilerplate modules, and baseline tools used across clients, granting the client a perpetual, non-exclusive, royalty-free license to use and modify them within their deployed solution.</li>
             </ul>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+            <h2 className="text-h3">
               3. Service Level Agreements &amp; Uptime
             </h2>
             <p>
@@ -72,7 +73,7 @@ export default function TermsPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+            <h2 className="text-h3">
               4. Governing Law &amp; Dispute Resolution
             </h2>
             <p>

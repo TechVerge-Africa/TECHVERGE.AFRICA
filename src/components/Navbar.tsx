@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import Logo from './Logo';
+import { BrandBar } from './Brand';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -15,27 +16,19 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const pathname = usePathname();
 
+  // Close mobile drawer on route change
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    setIsMobileOpen(false);
+  }, [pathname]);
 
   // Lock body scroll when mobile drawer is open
   useEffect(() => {
-    if (isMobileOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isMobileOpen ? 'hidden' : '';
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [isMobileOpen]);
 
@@ -54,68 +47,59 @@ export default function Navbar() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs py-3.5'
-          : 'bg-white/80 backdrop-blur-xs border-b border-slate-100 py-4 sm:py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-tech-accent rounded-lg p-0.5"
-            aria-label="Techverge Africa Ltd - Home"
-          >
-            <div className="relative w-8 h-8 sm:w-9 sm:h-9 shrink-0">
-              <Image
-                src="/images/logo.png"
-                alt="Techverge Africa"
-                fill
-                priority
-                className="object-contain"
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 group-hover:text-tech-accent transition-colors leading-none">
-                Techverge<span className="text-tech-accent font-black">.</span>
-              </span>
-              <span className="text-[10px] font-mono tracking-widest text-slate-500 uppercase mt-0.5">
-                Africa Ltd
-              </span>
-            </div>
+    // Header: sticky and white with a thin bottom line
+    <header className="sticky top-0 z-50 w-full bg-surface-1 border-b border-line">
+      {/* Brand strip: blue, orange and green converging, as in the V mark */}
+      <BrandBar className="h-1.5" />
+      <div className="container-site relative">
+        <div className="flex h-16 md:h-[72px] items-center justify-between">
+          {/* Logo lock-up */}
+          <Link href="/" className="rounded-button" aria-label="Techverge Africa Ltd - Home">
+            <Logo size={28} priority />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+          <nav aria-label="Main" className="hidden md:flex items-center gap-1 lg:gap-2">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors ${
-                    active
-                      ? 'text-tech-accent bg-blue-50/70'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  aria-current={active ? 'page' : undefined}
+                  className={`group relative px-3.5 py-2 text-[15px] font-medium rounded-button transition-colors ${
+                    active ? 'text-action-primary' : 'text-ink-muted hover:text-ink'
                   }`}
                 >
                   {link.name}
+                  {/* Active: Verge Blue underline with an orange tip. Hover: Growth Green. */}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute left-3.5 right-3.5 -bottom-[13px] md:-bottom-[17px] h-[3px] rounded-full transition-all ${
+                      active
+                        ? 'bg-brand-blue'
+                        : 'bg-brand-green scale-x-0 group-hover:scale-x-100 origin-left'
+                    }`}
+                  />
+                  {active && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute right-3.5 -bottom-[13px] md:-bottom-[17px] h-[3px] w-2 rounded-full bg-brand-orange"
+                    />
+                  )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Header CTA */}
+          {/* Header CTA: blue button */}
           <div className="hidden md:flex items-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-tech-accent text-white font-bold text-sm hover:bg-tech-accentHover transition-colors shadow-xs active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-button bg-action-primary text-white font-semibold text-[15px] hover:bg-action-hover transition-colors"
             >
               <span>Book a Consultation</span>
-              <ArrowRight size={15} />
+              <ArrowRight size={16} strokeWidth={1.75} aria-hidden="true" />
             </Link>
           </div>
 
@@ -123,19 +107,19 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-tech-accent"
+            className="md:hidden -mr-2 p-2 rounded-button text-ink hover:bg-surface-2 transition-colors"
             aria-label={isMobileOpen ? 'Close Menu' : 'Open Menu'}
             aria-expanded={isMobileOpen}
           >
-            {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileOpen ? <X size={24} strokeWidth={1.75} /> : <Menu size={24} strokeWidth={1.75} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {isMobileOpen && (
-        <div className="fixed inset-0 top-[65px] z-40 bg-white md:hidden flex flex-col justify-between p-6 overflow-y-auto border-t border-slate-200 animate-in fade-in duration-150">
-          <nav className="flex flex-col gap-2">
+        <div className="fixed inset-x-0 bottom-0 top-[70px] z-40 bg-surface-1 md:hidden flex flex-col justify-between px-4 pt-4 pb-8 overflow-y-auto border-t border-line">
+          <nav aria-label="Mobile" className="flex flex-col">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
@@ -143,34 +127,35 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileOpen(false)}
-                  className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-bold transition-colors ${
-                    active
-                      ? 'text-tech-accent bg-blue-50/80 border border-blue-100'
-                      : 'text-slate-800 hover:bg-slate-50'
+                  aria-current={active ? 'page' : undefined}
+                  className={`flex items-center justify-between py-4 border-b border-line font-heading text-xl font-semibold transition-colors ${
+                    active ? 'text-action-primary border-l-4 border-l-brand-blue pl-3' : 'text-ink hover:text-brand-green-deep'
                   }`}
                 >
                   <span>{link.name}</span>
                   <ArrowRight
-                    size={16}
-                    className={active ? 'text-tech-accent' : 'text-slate-400'}
+                    size={20}
+                    strokeWidth={1.75}
+                    aria-hidden="true"
+                    className={active ? 'text-brand-orange' : 'text-ink-muted'}
                   />
                 </Link>
               );
             })}
           </nav>
 
-          <div className="pt-8 border-t border-slate-100 space-y-4">
+          <div className="pt-8 space-y-4">
             <Link
               href="/contact"
               onClick={() => setIsMobileOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-tech-accent text-white font-bold text-base hover:bg-tech-accentHover transition-colors shadow-sm"
+              className="w-full flex items-center justify-center gap-2 min-h-12 py-3 rounded-button bg-action-primary text-white font-semibold text-base hover:bg-action-hover transition-colors"
             >
               <span>Book a Consultation</span>
-              <ArrowRight size={18} />
+              <ArrowRight size={18} strokeWidth={1.75} aria-hidden="true" />
             </Link>
 
             <div className="text-center">
-              <p className="text-xs text-slate-500 font-mono">
+              <p className="text-sm text-ink-muted">
                 Techverge Africa Ltd · Kumasi, Ghana
               </p>
             </div>

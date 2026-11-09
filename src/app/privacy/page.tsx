@@ -10,38 +10,39 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="flex flex-col w-full bg-white text-slate-800">
+    <div className="flex flex-col w-full bg-surface-1 text-ink">
       {/* ── HEADER ── */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-slate-50 via-white to-slate-50/60 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-20 bg-surface-1 border-b border-line">
+        <div className="container-site max-w-4xl">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs font-bold text-tech-accent hover:underline mb-6 font-mono"
+            className="inline-flex items-center gap-2 text-xs font-bold text-action-primary hover:underline mb-6"
           >
-            <ArrowLeft size={14} />
+            <ArrowLeft strokeWidth={1.75} size={14} />
             <span>Back to Home</span>
           </Link>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+          <span className="accent-line" aria-hidden="true" />
+          <h1 className="text-h1 mb-4">
             Privacy Policy
           </h1>
-          <p className="text-sm font-mono text-slate-500">
+          <p className="text-sm text-ink-muted">
             Techverge Africa Ltd &middot; Effective Date: October 2026 &middot; Version 2.0
           </p>
         </div>
       </section>
 
       {/* ── CONTENT ── */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-slate-700 leading-relaxed text-sm sm:text-base">
+      <section className="py-16 md:py-24 bg-surface-1">
+        <div className="container-site max-w-4xl space-y-10 text-ink leading-relaxed text-sm sm:text-base">
           
-          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs font-mono text-slate-700">
-            <p className="font-bold text-slate-900 text-sm">Techverge Africa Ltd Corporate Information:</p>
+          <div className="p-5 rounded-card bg-surface-0 border border-line space-y-2 text-xs text-ink">
+            <p className="font-bold text-ink text-sm">Techverge Africa Ltd Corporate Information:</p>
             <p>Corporate Status: Registered Private Limited Company &middot; Republic of Ghana</p>
             <p>Headquarters: Kumasi, Ghana &middot; Email: info@techverge.africa</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+            <h2 className="text-h3">
               1. Institutional Commitment to Data Sovereignty
             </h2>
             <p>
@@ -50,24 +51,24 @@ export default function PrivacyPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+            <h2 className="text-h3">
               2. Information We Collect
             </h2>
             <p>We only collect information necessary to deliver contracted technology services or respond to legitimate commercial inquiries:</p>
-            <ul className="list-disc pl-5 space-y-2 text-slate-600">
+            <ul className="list-disc pl-5 space-y-2 text-ink-muted">
               <li><strong>Contact &amp; Scoping Details:</strong> Full name, organizational email address, phone number, company name, project brief, and budget parameters submitted via our project briefing form.</li>
               <li><strong>Technical Metadata:</strong> Standard, non-identifying server logs (IP address, browser type, and timestamps) solely for platform security and denial-of-service mitigation.</li>
             </ul>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+            <h2 className="text-h3">
               3. Client Software &amp; AI Data Isolation
             </h2>
             <p>
               For all custom enterprise systems, private LLMs, and cloud environments engineered by Techverge Africa Ltd:
             </p>
-            <ul className="list-disc pl-5 space-y-2 text-slate-600">
+            <ul className="list-disc pl-5 space-y-2 text-ink-muted">
               <li><strong>Zero Multi-Tenant Bleed:</strong> Client operational data, proprietary databases, and customer records remain strictly isolated within the client&apos;s designated cloud or on-premise infrastructure.</li>
               <li><strong>No Third-Party AI Training:</strong> We never submit client proprietary source code, document records, or operational data to public commercial AI models for training purposes.</li>
               <li><strong>Full Client Ownership:</strong> The client retains 100% intellectual property ownership of their data, records, and proprietary models upon deployment.</li>
@@ -75,14 +76,14 @@ export default function PrivacyPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+            <h2 className="text-h3">
               4. Contact the Data Protection Lead
             </h2>
             <p>
               For privacy audits, data subject requests, or security disclosures, please contact our legal and compliance department directly:
             </p>
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-800 space-y-1">
-              <p>Email: <a href="mailto:info@techverge.africa" className="text-tech-accent underline">info@techverge.africa</a></p>
+            <div className="p-4 rounded-button bg-surface-0 border border-line text-xs text-ink space-y-1">
+              <p>Email: <a href="mailto:info@techverge.africa" className="text-action-primary underline">info@techverge.africa</a></p>
               <p>Phone: +233 59 150 7448</p>
               <p>Location: Kumasi, Ghana</p>
             </div>

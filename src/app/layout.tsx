@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
+import { DM_Sans, Sora } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppBot from '@/components/WhatsAppBot';
+
+// Brand typefaces: Sora for headings (Semi Bold, Bold), DM Sans for text (Regular, Medium, Bold).
+const sora = Sora({ subsets: ['latin'], weight: ['400', '600', '700'], variable: '--font-sora', display: 'swap' });
+const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-dm-sans', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://techverge.africa'),
@@ -65,12 +70,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-white text-slate-800 font-sans antialiased selection:bg-tech-accent selection:text-white flex flex-col">
+    <html lang="en" className={`${sora.variable} ${dmSans.variable}`}>
+      <body className="min-h-screen bg-surface-0 text-ink font-sans antialiased flex flex-col">
         {/* Skip to main content for accessibility */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-tech-accent text-white font-semibold rounded-md shadow-lg outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-action-primary text-white font-semibold rounded-button"
         >
           Skip to main content
         </a>

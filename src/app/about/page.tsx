@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { tone } from '@/components/Brand';
 import {
   Target,
   Compass,
@@ -27,6 +28,17 @@ const executiveLeadership = [
     github: 'https://github.com/asulley',
     isLead: true,
   },
+   {
+    name: 'Abdul-Moomin Is-haq',
+    role: 'Co-founder & Chief Technology Office',
+    badge: 'CO-FOUNDER & CTO',
+    focus: 'Full-Stack Architecture & Engineering Operations',
+    image: '/images/team/ishaq.jpg',
+    bio: 'Tech entrepreneur, Senior systems architect and co-founder directing engineering delivery, system security, and developer operations. Leads technical design for scalable backend APIs and high-concurrency enterprise applications.',
+    linkedin: 'https://linkedin.com',
+    github: 'https://github.com',
+    isLead: false,
+  },
   {
     name: 'Robert Samuel Aggrey',
     role: 'Secretary & Customer Relations',
@@ -38,31 +50,21 @@ const executiveLeadership = [
     github: 'https://github.com',
     isLead: false,
   },
-  {
-    name: 'Is-haq Abdul-Moomin',
-    role: 'Technical Lead & Co-founder',
-    badge: 'CO-FOUNDER & TECH LEAD',
-    focus: 'Full-Stack Architecture & Engineering Operations',
-    image: '/images/team/ishaq.jpg',
-    bio: 'Senior systems architect and co-founder directing engineering delivery, system security, and developer operations. Leads technical design for scalable backend APIs and high-concurrency enterprise applications.',
-    linkedin: 'https://linkedin.com',
-    github: 'https://github.com',
-    isLead: false,
-  },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col w-full bg-white text-slate-800">
+    <div className="flex flex-col w-full bg-surface-1 text-ink">
       {/* ── HEADER ── */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-slate-50 via-white to-slate-50/60 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-20 bg-surface-1 border-b border-line">
+        <div className="container-site">
           <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+            <span className="accent-line" aria-hidden="true" />
+            <h1 className="text-h1 mb-6">
               Driving Digital Evolution from the{' '}
-              <span className="text-tech-accent">Heart of Ashanti.</span>
+              <span className="text-action-primary">Heart of Ashanti.</span>
             </h1>
-            <p className="text-lg text-slate-600 leading-relaxed font-medium">
+            <p className="text-lg text-ink-muted leading-relaxed font-medium">
               We build innovative solutions through research for Africa and the world—engineering the technological backbone that allows African enterprises, institutions, and builders to lead on the global stage.
             </p>
           </div>
@@ -70,20 +72,20 @@ export default function AboutPage() {
       </section>
 
       {/* ── OUR STORY & ORIGINS ── */}
-      <section className="py-20 md:py-28 bg-slate-50/60 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 bg-surface-0 border-b border-line">
+        <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
             
             {/* Story Copy (7 cols) */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-tech-accent block">
+              <span className="eyebrow">
                 Company Origins
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              <h2 className="text-h2">
                 Driving Digital Evolution from the Heart of Ashanti.
               </h2>
               
-              <div className="space-y-4 text-base text-slate-600 leading-relaxed">
+              <div className="space-y-4 text-base text-ink-muted leading-relaxed">
                 <p>
                   Incorporated in the Republic of Ghana, <strong>Techverge Africa Ltd</strong> was founded with a singular, disruptive vision: to build the foundational software ecosystem that will power Africa&apos;s digital economy. We build innovative solutions through research for Africa and the world.
                 </p>
@@ -96,25 +98,25 @@ export default function AboutPage() {
               </div>
 
               {/* Official Credibility Box */}
-              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2 text-xs font-mono text-slate-700">
+              <div className="p-5 rounded-card bg-surface-1 border border-line space-y-2 text-xs text-ink">
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-500">Corporate Entity:</span>
-                  <span className="font-bold text-slate-900">Techverge Africa Ltd</span>
+                  <span className="text-ink-muted">Corporate Entity:</span>
+                  <span className="font-bold text-ink">Techverge Africa Ltd</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-500">Corporate Status:</span>
-                  <span className="font-bold text-tech-accent">Registered Private Limited Company</span>
+                  <span className="text-ink-muted">Corporate Status:</span>
+                  <span className="font-bold text-action-primary">Registered Private Limited Company</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-500">Headquarters:</span>
-                  <span className="text-slate-900 font-semibold">Kumasi, Ghana</span>
+                  <span className="text-ink-muted">Headquarters:</span>
+                  <span className="text-ink font-semibold">Kumasi, Ghana</span>
                 </div>
               </div>
             </div>
 
             {/* Visual Photography Column (5 cols) */}
             <div className="lg:col-span-5">
-              <div className="relative h-96 sm:h-[460px] w-full rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-slate-100">
+              <div className="relative h-96 sm:h-[460px] w-full rounded-card overflow-hidden border border-line bg-surface-2">
                 <Image
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
                   alt="Techverge Africa engineering workspace"
@@ -129,47 +131,47 @@ export default function AboutPage() {
           {/* ── MISSION & VISION CARDS ── */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Mission */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm flex flex-col justify-between">
+            <div className="bg-surface-1 border border-line rounded-card p-8 sm:p-10 flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200/60 flex items-center justify-center text-tech-accent">
-                  <Target size={24} />
+                <div className="w-12 h-12 rounded-button bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center text-action-primary">
+                  <Target strokeWidth={1.75} size={24} />
                 </div>
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-tech-accent block">
+                <span className="eyebrow">
                   Strategic Mission
                 </span>
-                <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                <h3 className="text-h3">
                   Our Mission
                 </h3>
-                <p className="text-base text-slate-600 leading-relaxed font-medium">
+                <p className="text-base text-ink-muted leading-relaxed font-medium">
                   To accelerate African digital transformation by delivering resilient software products and high-impact IT infrastructure.
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-mono text-slate-500">
-                <CheckCircle2 size={14} className="text-tech-accent" />
+              <div className="pt-6 mt-6 border-t border-line flex items-center gap-2 text-xs text-ink-muted">
+                <CheckCircle2 strokeWidth={1.75} size={14} className="text-action-primary" />
                 <span>Execution-driven engineering roadmap</span>
               </div>
             </div>
 
             {/* Vision */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm flex flex-col justify-between">
+            <div className="bg-surface-1 border border-line rounded-card p-8 sm:p-10 flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200/60 flex items-center justify-center text-indigo-600">
-                  <Compass size={24} />
+                <div className="w-12 h-12 rounded-button bg-brand-green/15 border border-brand-green/30 flex items-center justify-center text-brand-green-deep">
+                  <Compass strokeWidth={1.75} size={24} />
                 </div>
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-600 block">
+                <span className="text-xs font-bold uppercase tracking-[0.08em] text-brand-green-deep block">
                   Continental Ambition
                 </span>
-                <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                <h3 className="text-h3">
                   Our Vision
                 </h3>
-                <p className="text-base text-slate-600 leading-relaxed font-medium">
+                <p className="text-base text-ink-muted leading-relaxed font-medium">
                   To evolve into Africa&apos;s leading tech conglomerate, fostering innovation, engineering breakthrough products, and backing the next generation of tech builders.
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-mono text-slate-500">
-                <CheckCircle2 size={14} className="text-indigo-600" />
+              <div className="pt-6 mt-6 border-t border-line flex items-center gap-2 text-xs text-ink-muted">
+                <CheckCircle2 strokeWidth={1.75} size={14} className="text-brand-green-deep" />
                 <span>Building for multi-generational scale</span>
               </div>
             </div>
@@ -178,63 +180,63 @@ export default function AboutPage() {
       </section>
 
       {/* ── LEADERSHIP & TEAM ── */}
-      <section className="py-20 md:py-28 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 bg-surface-1 border-b border-line">
+        <div className="container-site">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
             <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-tech-accent block mb-2">
+              <span className="eyebrow mb-2">
                 Executive Leadership
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              <h2 className="text-h2">
                 The Architects of Techverge Africa
               </h2>
             </div>
-            <div className="text-xs font-mono text-slate-600 bg-slate-100 px-3.5 py-1.5 rounded-xl border border-slate-200 w-fit">
+            <div className="text-xs text-ink-muted bg-surface-2 px-3.5 py-1.5 rounded-button border border-line w-fit">
               Headquarters: Kumasi, Ghana
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {executiveLeadership.map((member) => (
+            {executiveLeadership.map((member, i) => (
               <div
                 key={member.name}
-                className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden flex flex-col justify-between hover:border-tech-accent/40 shadow-sm transition-all duration-300 group"
+                className={`bg-surface-0 border border-line ${tone(i).top} rounded-card overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:shadow-soft transition-all duration-300 group`}
               >
                 <div>
-                  <div className="relative w-full aspect-square overflow-hidden bg-slate-800">
+                  <div className="relative w-full aspect-square overflow-hidden bg-surface-1/10">
                     <Image
                       src={member.image}
                       alt={`${member.name} - ${member.role}`}
                       fill
                       className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
-                    <span className="absolute top-3 left-3 text-[10px] font-mono font-bold text-white bg-tech-accent px-2.5 py-1 rounded-md shadow-xs">
+                    <span className="absolute top-3 left-3 text-[10px] font-bold text-white bg-action-primary px-2.5 py-1 rounded-md">
                       {member.badge}
                     </span>
                   </div>
 
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-slate-900 mb-0.5">
+                    <h3 className="text-h3 mb-0.5">
                       {member.name}
                     </h3>
-                    <p className="text-xs font-semibold text-tech-accent mb-1 font-mono">
+                    <p className="text-xs font-semibold text-action-primary mb-1">
                       {member.role}
                     </p>
-                    <p className="text-[11px] text-slate-500 mb-3 font-medium">
+                    <p className="text-[11px] text-ink-muted mb-3 font-medium">
                       {member.focus}
                     </p>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-sm text-ink-muted leading-relaxed">
                       {member.bio}
                     </p>
                   </div>
                 </div>
 
-                <div className="px-6 pb-6 pt-3 border-t border-slate-200/80 flex items-center gap-3 text-xs">
+                <div className="px-6 pb-6 pt-3 border-t border-line flex items-center gap-3 text-xs">
                   <a
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-slate-500 hover:text-tech-accent transition-colors font-medium"
+                    className="inline-flex items-center gap-1.5 text-ink-muted hover:text-action-primary transition-colors font-medium"
                     aria-label={`${member.name} LinkedIn Profile`}
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -242,12 +244,12 @@ export default function AboutPage() {
                     </svg>
                     <span>LinkedIn</span>
                   </a>
-                  <span className="text-slate-300">&middot;</span>
+                  <span className="text-white/80">&middot;</span>
                   <a
                     href={member.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-slate-500 hover:text-tech-accent transition-colors font-medium"
+                    className="inline-flex items-center gap-1.5 text-ink-muted hover:text-action-primary transition-colors font-medium"
                     aria-label={`${member.name} GitHub Profile`}
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -263,28 +265,28 @@ export default function AboutPage() {
       </section>
 
       {/* ── ABOUT CTA ── */}
-      <section className="py-24 md:py-32 bg-slate-50 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
+      <section className="py-16 md:py-24 bg-surface-0 text-center">
+        <div className="container-site max-w-4xl">
+          <h2 className="text-h2 mb-4">
             Partner with an engineering team that understands your reality.
           </h2>
-          <p className="text-slate-600 text-base max-w-xl mx-auto mb-10 leading-relaxed">
+          <p className="text-ink-muted text-base max-w-xl mx-auto mb-10 leading-relaxed">
             Let&apos;s build production-grade technology that scales across African markets.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-tech-accent text-white font-bold text-sm hover:bg-tech-accentHover transition-colors shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-button bg-action-primary text-white font-bold text-sm hover:bg-action-hover transition-colors"
             >
               <span>Book a Consultation</span>
-              <ArrowRight size={16} />
+              <ArrowRight strokeWidth={1.75} size={16} />
             </Link>
             <Link
               href="/services"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-slate-800 font-bold text-sm border border-slate-200 transition-colors shadow-2xs"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-button bg-surface-1 hover:bg-surface-2 text-ink font-bold text-sm border border-line transition-colors"
             >
               <span>Explore Our Services</span>
-              <ArrowUpRight size={16} />
+              <ArrowUpRight strokeWidth={1.75} size={16} />
             </Link>
           </div>
         </div>

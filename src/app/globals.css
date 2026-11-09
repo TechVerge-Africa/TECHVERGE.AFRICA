@@ -2,60 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+/* Techverge Africa: Brand Guidelines v1.0 */
 
-:root {
-  --background: #FFFFFF;
-  --foreground: #0F172A;
-  --accent: #1D64EC;
-  --accent-hover: #1551c6;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-surface-0 font-sans text-base text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Sora for headings: Semi Bold and Bold */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold text-ink;
+  }
+
+  /* Visible focus rings everywhere */
+  :focus-visible {
+    outline: 2px solid #2252cd;
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: #2252cd;
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #eef1f6; }
+  ::-webkit-scrollbar-thumb { background: #dce1ea; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2252cd; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+@layer components {
+  /* Grid: 1200px max width, 24px gutters, 16px minimum side margin on phones */
+  .container-site {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6;
+  }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* Type scale: Display 64 / H1 44 / H2 32 / H3 22. Phones: Display 40, H1 32. */
+  .text-display { @apply font-heading text-fs-display-sm font-bold md:text-fs-display; }
+  .text-h1 { @apply font-heading text-fs-h1-sm font-bold md:text-fs-h1; }
+  .text-h2 { @apply font-heading text-fs-h2 font-semibold; }
+  .text-h3 { @apply font-heading text-fs-h3 font-semibold; }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  letter-spacing: -0.03em;
-  color: #0F172A;
-  font-weight: 800;
-}
+  /* Label 12px: capitals with letter spacing */
+  .eyebrow {
+    @apply block font-sans text-label font-bold uppercase text-action-primary;
+  }
 
-::selection {
-  background: var(--accent);
-  color: #ffffff;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #F1F5F9;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+  /* One short Spark Orange line: the single orange accent in a view */
+  .accent-line {
+    @apply mb-6 block h-1 w-12 rounded-full bg-brand-orange;
+  }
 }

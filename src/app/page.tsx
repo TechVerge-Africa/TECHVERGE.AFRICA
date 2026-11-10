@@ -11,7 +11,7 @@ import {
   ArrowUpRight,
   CheckCircle2,
 } from 'lucide-react';
-import { BrandStripes, tone } from '@/components/Brand';
+import { BrandBar, BrandStripes, tone } from '@/components/Brand';
 
 export const metadata = {
   title: { absolute: 'Techverge Africa Ltd | Engineering the Future of African Enterprise' },
@@ -410,14 +410,19 @@ export default function HomePage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-16 md:py-24 bg-surface-1 text-center">
         <div className="container-site">
-          <div data-reveal className="relative overflow-hidden rounded-hero border border-line bg-surface-0 px-6 py-14 sm:px-12 md:py-20">
-          {/* Brand cover stripes framing the panel on both sides */}
-          <BrandStripes className="absolute -left-[300px] -bottom-24 h-[360px] w-[420px] hidden lg:block rotate-180" opacity={0.16} />
-          <BrandStripes className="absolute -right-[300px] -top-24 h-[360px] w-[420px] hidden lg:block" opacity={0.16} />
+          <div data-reveal className="relative overflow-hidden rounded-hero border border-brand-blue/15 bg-surface-2 px-6 pt-16 pb-14 sm:px-12 md:pt-20 md:pb-20">
+          {/* Brand cover stripes in full colour, running the full height of both edges */}
+          <BrandStripes anchor="left" className="absolute inset-y-0 left-0 h-full w-[260px] xl:w-[300px] hidden lg:block" />
+          <BrandStripes anchor="right" className="absolute inset-y-0 right-0 h-full w-[260px] xl:w-[300px] hidden lg:block" />
+          {/* Soft fades so the stripes melt into the panel instead of ending on a hard edge */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-[260px] xl:w-[300px] bg-gradient-to-r from-transparent via-surface-2/10 to-surface-2 hidden lg:block" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-[260px] xl:w-[300px] bg-gradient-to-l from-transparent via-surface-2/10 to-surface-2 hidden lg:block" aria-hidden="true" />
+          {/* The V's colours along the top edge of the panel, above the fades */}
+          <BrandBar className="absolute inset-x-0 top-0 h-1.5" />
           <div className="relative mx-auto max-w-3xl">
           <span className="accent-line mx-auto" aria-hidden="true" />
           <h2 className="text-h2 md:text-fs-h1 mb-6">
-            Let&apos;s Build Something Massive Together.
+            Let&apos;s Build Something <span className="text-action-primary">Massive Together.</span>
           </h2>
           <p className="text-ink-muted text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
             Tell us about your project requirements, technical challenges, or scaling goals. Our engineering team will review your brief and get back to you within 24 hours.
@@ -434,7 +439,7 @@ export default function HomePage() {
               href="https://wa.me/233591507448"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-button bg-surface-2 hover:bg-line text-ink font-bold text-sm sm:text-base border border-line transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-button bg-surface-1 hover:bg-brand-green/10 text-brand-green-deep font-bold text-sm sm:text-base border border-brand-green/50 hover:border-brand-green transition-colors"
             >
               <span>Chat on WhatsApp</span>
               <ArrowUpRight strokeWidth={1.75} size={17} />

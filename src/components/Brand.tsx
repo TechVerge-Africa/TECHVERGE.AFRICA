@@ -22,7 +22,16 @@ export function BrandBar({ className = 'h-1' }: { className?: string }) {
  * The guide's cover motif: parallel bands leaning ~30° (tan 30° ≈ 0.577).
  * Place inside a `relative overflow-hidden` navy container.
  */
-export function BrandStripes({ className = '', opacity = 1 }: { className?: string; opacity?: number }) {
+export function BrandStripes({
+  className = '',
+  opacity = 1,
+  anchor = 'right',
+}: {
+  className?: string;
+  opacity?: number;
+  /** Which edge of the motif stays visible when the box is narrower than the art. */
+  anchor?: 'left' | 'right';
+}) {
   // Each band: [x offset at the bottom, width, colour]
   const bands: [number, number, string][] = [
     [0, 70, '#1D4597'], // soft navy band
@@ -37,7 +46,7 @@ export function BrandStripes({ className = '', opacity = 1 }: { className?: stri
       aria-hidden="true"
       className={`pointer-events-none ${className}`}
       viewBox="0 0 800 600"
-      preserveAspectRatio="xMaxYMid slice"
+      preserveAspectRatio={anchor === 'left' ? 'xMinYMid slice' : 'xMaxYMid slice'}
       style={{ opacity }}
     >
       {bands.map(([x, w, c]) => (

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import ContactForm from './ContactForm';
 import { Mail, Phone, MapPin, MessageSquare, Clock, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { BrandStripes } from '@/components/Brand';
 
 export const metadata: Metadata = {
   title: { absolute: 'Contact Us | Partner With Techverge Africa Ltd' },
@@ -13,8 +14,10 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col w-full bg-surface-1 text-ink">
       {/* ── HEADER ── */}
-      <section className="py-16 md:py-20 bg-surface-1 border-b border-line">
-        <div className="container-site">
+      <section className="relative overflow-hidden py-16 md:py-20 bg-surface-1 border-b border-line">
+        {/* Brand cover motif, faint, behind the page title */}
+        <BrandStripes className="absolute -top-10 -right-48 h-[calc(100%+80px)] w-[620px] hidden lg:block" opacity={0.12} />
+        <div className="relative container-site">
           <div className="max-w-3xl">
             <span className="accent-line" aria-hidden="true" />
             <h1 className="text-h1 mb-6">
@@ -30,7 +33,7 @@ export default function ContactPage() {
       {/* ── MAIN CONTENT ── */}
       <section className="py-16 md:py-24 bg-surface-0 border-b border-line">
         <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div data-reveal-group className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Left: Contact Info & Value Props (5 cols) */}
             <div className="lg:col-span-5 space-y-8">

@@ -10,7 +10,7 @@ import {
   ArrowUpRight,
   CheckCircle2,
 } from 'lucide-react';
-import { tone } from '@/components/Brand';
+import { tone, BrandStripes } from '@/components/Brand';
 
 export const metadata: Metadata = {
   title: { absolute: 'Our Technical Capabilities | Services | Techverge Africa Ltd' },
@@ -113,8 +113,10 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col w-full bg-surface-1 text-ink">
       {/* ── HEADER ── */}
-      <section className="py-16 md:py-20 bg-surface-1 border-b border-line">
-        <div className="container-site">
+      <section className="relative overflow-hidden py-16 md:py-20 bg-surface-1 border-b border-line">
+        {/* Brand cover motif, faint, behind the page title */}
+        <BrandStripes className="absolute -top-10 -right-48 h-[calc(100%+80px)] w-[620px] hidden lg:block" opacity={0.12} />
+        <div className="relative container-site">
           <div className="max-w-3xl">
             <span className="accent-line" aria-hidden="true" />
             <h1 className="text-h1 mb-4">
@@ -138,6 +140,7 @@ export default function ServicesPage() {
               <div
                 key={service.id}
                 id={service.id}
+                data-reveal
                 className="bg-surface-1 border border-line rounded-card overflow-hidden transition-shadow scroll-mt-28"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
@@ -154,6 +157,7 @@ export default function ServicesPage() {
                       className="object-cover"
                       style={{ objectPosition: service.imagePosition }}
                     />
+                    <div className="tv-photo-fade" aria-hidden="true" />
                   </div>
 
                   {/* Content Column */}
@@ -240,12 +244,22 @@ export default function ServicesPage() {
       </section>
 
       {/* ── FINAL SERVICES CTA ── */}
-      <section className="py-16 md:py-24 bg-surface-1 text-center">
-        <div className="container-site max-w-4xl">
-          <h2 className="text-h2 mb-4">
+      <section className="relative overflow-hidden py-20 md:py-28 bg-brand-midnight text-center">
+        {/* The network render, under a Deep Navy veil so white text stays at AA contrast */}
+        <Image
+          src="/images/cloud-network.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/85 via-brand-midnight/80 to-brand-midnight/95" aria-hidden="true" />
+        <div data-reveal className="relative container-site max-w-4xl">
+          <span className="accent-line mx-auto" aria-hidden="true" />
+          <h2 className="text-h2 md:text-fs-h1 text-white mb-4">
             Ready to modernize your infrastructure?
           </h2>
-          <p className="text-ink-muted text-base max-w-xl mx-auto mb-10 leading-relaxed">
+          <p className="text-white/85 text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
             Schedule a technical discovery session with our engineering leads to discuss your roadmap, timeline, and budget.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -260,7 +274,7 @@ export default function ServicesPage() {
               href="https://wa.me/233591507448?text=Hello%20Techverge%20Africa!%20I%20would%20like%20to%20consult%20on%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-button bg-surface-2 hover:bg-line text-ink font-bold text-sm border border-line transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-button bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/30 transition-colors duration-150"
             >
               <span>WhatsApp Direct Line</span>
               <ArrowUpRight strokeWidth={1.75} size={16} />

@@ -7,6 +7,7 @@ import {
   Calendar,
   Clock,
 } from 'lucide-react';
+import { BrandStripes } from '@/components/Brand';
 
 export const metadata: Metadata = {
   title: { absolute: 'Insights & Technical Perspectives | Techverge Africa Ltd' },
@@ -61,8 +62,10 @@ export default function InsightsPage() {
   return (
     <div className="flex flex-col w-full bg-surface-1 text-ink">
       {/* ── HEADER ── */}
-      <section className="py-16 md:py-20 bg-surface-1 border-b border-line">
-        <div className="container-site">
+      <section className="relative overflow-hidden py-16 md:py-20 bg-surface-1 border-b border-line">
+        {/* Brand cover motif, faint, behind the page title */}
+        <BrandStripes className="absolute -top-10 -right-48 h-[calc(100%+80px)] w-[620px] hidden lg:block" opacity={0.12} />
+        <div className="relative container-site">
           <div className="max-w-3xl">
             <span className="accent-line" aria-hidden="true" />
             <h1 className="text-h1 mb-4">
@@ -78,11 +81,11 @@ export default function InsightsPage() {
       {/* ── ARTICLES GRID ── */}
       <section className="py-16 md:py-24 bg-surface-0 border-b border-line">
         <div className="container-site">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             {articles.map((item) => (
               <article
                 key={item.slug}
-                className="bg-surface-1 border border-line rounded-card overflow-hidden hover:border-action-primary/40 transition-colors duration-200 flex flex-col justify-between group"
+                className="bg-surface-1 border border-line rounded-card overflow-hidden hover:border-action-primary/40 hover:shadow-soft transition-[border-color,box-shadow] duration-200 flex flex-col justify-between group"
               >
                 <div>
                   <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-surface-2">
@@ -91,8 +94,14 @@ export default function InsightsPage() {
                       alt={item.title}
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out motion-reduce:group-hover:scale-100"
                     />
+                    <div className="tv-photo-fade" aria-hidden="true" />
+                    {/* Status with a word, never colour alone */}
+                    <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-surface-1/95 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-ink shadow-sm">
+                      <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" aria-hidden="true" />
+                      Coming soon
+                    </span>
                   </div>
 
                   <div className="p-6 sm:p-8">
@@ -128,7 +137,7 @@ export default function InsightsPage() {
                   </span>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-action-primary group-hover:text-action-hover transition-colors"
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-action-primary group-hover:text-action-hover transition-colors"
                   >
                     <span>Discuss Implementation</span>
                     <ArrowRight strokeWidth={1.75} size={14} />
@@ -142,7 +151,7 @@ export default function InsightsPage() {
 
       {/* ── TECHNICAL ADVISORY CALLOUT ── */}
       <section className="py-16 md:py-24 bg-surface-1 text-center border-b border-line">
-        <div className="container-site max-w-3xl">
+        <div data-reveal className="container-site max-w-3xl">
           <span className="eyebrow mb-3">
             Technical Advisory
           </span>

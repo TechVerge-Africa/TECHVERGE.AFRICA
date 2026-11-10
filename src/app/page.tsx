@@ -192,7 +192,7 @@ export default function HomePage() {
       <section className="py-16 md:py-24 bg-surface-0 border-b border-line">
         <div className="container-site">
           
-          <div className="max-w-3xl mb-16">
+          <div data-reveal className="max-w-3xl mb-16">
             <span className="eyebrow mb-3">
               Value Proposition
             </span>
@@ -207,7 +207,7 @@ export default function HomePage() {
           </div>
 
           {/* 3 Core Pillars */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {corePillars.map((pillar, i) => {
               const Icon = pillar.icon;
               return (
@@ -267,7 +267,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {previewServices.map((svc, i) => {
               const Icon = svc.icon;
               return (
@@ -329,7 +329,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 text-sm">
+          <div data-reveal-group className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 text-sm">
             <div className="p-4 rounded-card bg-surface-1 border border-line text-center space-y-1 hover:border-action-primary/40 transition-colors">
               <span className="text-ink font-bold block">Next.js 15 / React</span>
               <span className="text-xs text-ink-muted">High-Performance Web</span>
@@ -363,7 +363,7 @@ export default function HomePage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-16 md:py-24 bg-surface-0 border-b border-line">
         <div className="container-site">
-          <div className="bg-brand-navy rounded-hero p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden">
+          <div data-reveal className="bg-brand-navy rounded-hero p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden">
             <BrandStripes className="absolute -top-10 -right-32 h-[360px] w-[520px] hidden md:block" opacity={0.3} />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
@@ -409,8 +409,14 @@ export default function HomePage() {
       {/* 5. FINAL CALL TO ACTION                                             */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-16 md:py-24 bg-surface-1 text-center">
-        <div className="container-site max-w-4xl">
-          <h2 className="text-h2 mb-6">
+        <div className="container-site">
+          <div data-reveal className="relative overflow-hidden rounded-hero border border-line bg-surface-0 px-6 py-14 sm:px-12 md:py-20">
+          {/* Brand cover stripes framing the panel on both sides */}
+          <BrandStripes className="absolute -left-[300px] -bottom-24 h-[360px] w-[420px] hidden lg:block rotate-180" opacity={0.16} />
+          <BrandStripes className="absolute -right-[300px] -top-24 h-[360px] w-[420px] hidden lg:block" opacity={0.16} />
+          <div className="relative mx-auto max-w-3xl">
+          <span className="accent-line mx-auto" aria-hidden="true" />
+          <h2 className="text-h2 md:text-fs-h1 mb-6">
             Let&apos;s Build Something Massive Together.
           </h2>
           <p className="text-ink-muted text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
@@ -433,6 +439,8 @@ export default function HomePage() {
               <span>Chat on WhatsApp</span>
               <ArrowUpRight strokeWidth={1.75} size={17} />
             </a>
+          </div>
+          </div>
           </div>
         </div>
       </section>

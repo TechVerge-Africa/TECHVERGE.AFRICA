@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Mail } from 'lucide-react';
+import { BrandStripes } from '@/components/Brand';
 
 export const metadata: Metadata = {
   title: { absolute: 'Terms of Service | Techverge Africa Ltd' },
@@ -12,8 +13,10 @@ export default function TermsPage() {
   return (
     <div className="flex flex-col w-full bg-surface-1 text-ink">
       {/* ── HEADER ── */}
-      <section className="py-16 md:py-20 bg-surface-1 border-b border-line">
-        <div className="container-site max-w-4xl">
+      <section className="relative overflow-hidden py-16 md:py-20 bg-surface-1 border-b border-line">
+        {/* Brand cover motif, faint, behind the page title */}
+        <BrandStripes className="absolute -top-10 -right-48 h-[calc(100%+80px)] w-[620px] hidden lg:block" opacity={0.12} />
+        <div className="relative container-site max-w-4xl">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-xs font-bold text-action-primary hover:underline mb-6"

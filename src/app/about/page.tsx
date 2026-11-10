@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { tone } from '@/components/Brand';
+import { tone, BrandStripes } from '@/components/Brand';
 import {
   Target,
   Compass,
@@ -56,8 +56,10 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col w-full bg-surface-1 text-ink">
       {/* ── HEADER ── */}
-      <section className="py-16 md:py-20 bg-surface-1 border-b border-line">
-        <div className="container-site">
+      <section className="relative overflow-hidden py-16 md:py-20 bg-surface-1 border-b border-line">
+        {/* Brand cover motif, faint, behind the page title */}
+        <BrandStripes className="absolute -top-10 -right-48 h-[calc(100%+80px)] w-[620px] hidden lg:block" opacity={0.12} />
+        <div className="relative container-site">
           <div className="max-w-3xl">
             <span className="accent-line" aria-hidden="true" />
             <h1 className="text-h1 mb-6">
@@ -77,7 +79,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
             
             {/* Story Copy (7 cols) */}
-            <div className="lg:col-span-7 space-y-6">
+            <div data-reveal className="lg:col-span-7 space-y-6">
               <span className="eyebrow">
                 Company Origins
               </span>
@@ -130,7 +132,7 @@ export default function AboutPage() {
           </div>
 
           {/* ── MISSION & VISION CARDS ── */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Mission */}
             <div className="bg-surface-1 border border-line rounded-card p-8 sm:p-10 flex flex-col justify-between">
               <div className="space-y-4">
@@ -194,22 +196,23 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {executiveLeadership.map((member, i) => (
               <div
                 key={member.name}
                 className={`bg-surface-0 border border-line ${tone(i).top} rounded-card overflow-hidden flex flex-col justify-between hover:-translate-y-0.5 hover:shadow-soft motion-reduce:hover:translate-y-0 transition-[transform,box-shadow,background-color] ease-out duration-200 group`}
               >
                 <div>
-                  <div className="relative w-full aspect-square overflow-hidden bg-surface-1/10">
+                  <div className="relative w-full aspect-square overflow-hidden bg-surface-2">
                     <Image
                       src={member.image}
                       alt={`${member.name} - ${member.role}`}
                       fill
                       sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-top group-hover:scale-[1.04] transition-transform duration-500 ease-out motion-reduce:group-hover:scale-100"
                     />
-                    <span className="absolute top-3 left-3 text-xs font-bold text-white bg-action-primary px-2.5 py-1 rounded-md">
+                    <div className="tv-photo-fade" aria-hidden="true" />
+                    <span className="absolute top-3 left-3 text-xs font-bold uppercase tracking-[0.08em] text-white bg-action-primary px-3 py-1 rounded-full shadow-sm">
                       {member.badge}
                     </span>
                   </div>

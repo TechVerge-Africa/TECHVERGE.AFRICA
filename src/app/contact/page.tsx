@@ -33,10 +33,10 @@ export default function ContactPage() {
       {/* ── MAIN CONTENT ── */}
       <section className="py-16 md:py-24 bg-surface-0 border-b border-line">
         <div className="container-site">
-          <div data-reveal-group className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div data-reveal-group className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
             
             {/* Left: Contact Info & Value Props (5 cols) */}
-            <div className="lg:col-span-5 space-y-8">
+            <div className="lg:col-span-5 flex flex-col gap-8">
               <div>
                 <h2 className="text-h2 mb-4">
                   Let&apos;s discuss your project
@@ -98,7 +98,7 @@ export default function ContactPage() {
               </div>
 
               {/* WhatsApp Callout */}
-              <div className="p-6 rounded-card bg-brand-green/10 border border-brand-green/30 space-y-3">
+              <div className="flex-1 flex flex-col justify-center p-6 rounded-card bg-brand-green/10 border border-brand-green/30 gap-3">
                 <div className="flex items-center gap-2 text-brand-green-deep font-bold text-sm">
                   <MessageSquare strokeWidth={1.75} size={16} className="text-brand-green-deep" />
                   <span>Prefer rapid messaging?</span>
@@ -110,33 +110,12 @@ export default function ContactPage() {
                   href="https://wa.me/233591507448?text=Hello%20Techverge%20Africa!%20I%20would%20like%20to%20discuss%20a%20new%20technology%20project."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-button bg-action-primary hover:bg-action-hover text-white font-bold text-sm transition-colors"
+                  className="self-start inline-flex items-center gap-2 px-4 py-2.5 rounded-button bg-action-primary hover:bg-action-hover text-white font-bold text-sm transition-colors"
                 >
                   <span>Chat on WhatsApp (+233 59 150 7448)</span>
                   <ArrowUpRight strokeWidth={1.75} size={14} />
                 </a>
               </div>
-
-              {/* Consultation Office Visual Card */}
-              <div className="relative h-44 w-full rounded-card overflow-hidden border border-line bg-surface-2">
-                <Image
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
-                  alt="Techverge Africa engineering consultation center"
-                  fill
-                  sizes="(min-width: 1024px) 420px, 100vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-midnight/90 via-brand-midnight/30 to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <span className="text-xs uppercase tracking-[0.08em] text-brand-green-bright font-bold block mb-0.5">
-                    Consultation &amp; Scoping Hub
-                  </span>
-                  <p className="text-sm font-semibold text-white">
-                    On-Site &amp; Pan-African Remote Deployments
-                  </p>
-                </div>
-              </div>
-
             </div>
 
             {/* Right: Contact Form (7 cols) */}
@@ -151,6 +130,26 @@ export default function ContactPage() {
               </div>
 
               <ContactForm />
+            </div>
+
+            {/* Consultation hub banner, full width under both columns */}
+            <div className="relative h-48 sm:h-56 lg:col-span-12 w-full rounded-card overflow-hidden border border-line bg-surface-2">
+              <Image
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop"
+                alt="Techverge Africa engineering consultation center"
+                fill
+                sizes="(min-width: 1200px) 1152px, 100vw"
+                className="object-cover object-[center_60%]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-midnight/90 via-brand-midnight/70 to-brand-midnight/40 sm:bg-gradient-to-r sm:via-brand-midnight/45 sm:to-transparent" />
+              <div className="absolute inset-y-0 left-6 sm:left-10 right-6 flex flex-col justify-center text-white">
+                <span className="text-xs uppercase tracking-[0.08em] text-brand-green-bright font-bold block mb-0.5">
+                  Consultation &amp; Scoping Hub
+                </span>
+                <p className="font-heading text-h3 sm:text-fs-h2 font-semibold text-white">
+                  On-Site &amp; Pan-African Remote Deployments
+                </p>
+              </div>
             </div>
 
           </div>

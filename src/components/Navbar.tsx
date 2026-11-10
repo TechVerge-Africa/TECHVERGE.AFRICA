@@ -75,7 +75,7 @@ export default function Navbar() {
                   {/* Active: Verge Blue underline with an orange tip. Hover: Growth Green. */}
                   <span
                     aria-hidden="true"
-                    className={`absolute left-3.5 right-3.5 -bottom-[13px] md:-bottom-[17px] h-[3px] rounded-full transition-all ${
+                    className={`absolute left-3.5 right-3.5 -bottom-[13px] md:-bottom-[17px] h-[3px] rounded-full transition-transform duration-200 ease-out ${
                       active
                         ? 'bg-brand-blue'
                         : 'bg-brand-green scale-x-0 group-hover:scale-x-100 origin-left'
@@ -107,7 +107,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden -mr-2 p-2 rounded-button text-ink hover:bg-surface-2 transition-colors"
+            className="md:hidden -mr-2.5 p-2.5 rounded-button text-ink hover:bg-surface-2 transition-colors"
             aria-label={isMobileOpen ? 'Close Menu' : 'Open Menu'}
             aria-expanded={isMobileOpen}
           >

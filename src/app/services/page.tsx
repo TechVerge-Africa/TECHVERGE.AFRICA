@@ -13,7 +13,7 @@ import {
 import { tone } from '@/components/Brand';
 
 export const metadata: Metadata = {
-  title: 'Our Technical Capabilities | Services | Techverge Africa Ltd',
+  title: { absolute: 'Our Technical Capabilities | Services | Techverge Africa Ltd' },
   description:
     'Fully licensed and structured to deliver end-to-end digital transformation: Software Development, Cloud Computing, AI & Data Solutions, and Strategic IT Consultancy.',
 };
@@ -169,7 +169,7 @@ export default function ServicesPage() {
                           <span className="text-xs font-bold uppercase tracking-[0.08em] text-action-primary block">
                             {service.category}
                           </span>
-                          <span className="text-xs text-ink-muted">
+                          <span className="text-sm text-ink-muted">
                             Core Discipline {service.number} / 04
                           </span>
                         </div>
@@ -179,7 +179,7 @@ export default function ServicesPage() {
                         {service.title}
                       </h2>
 
-                      <p className="text-ink-muted text-sm sm:text-base leading-relaxed">
+                      <p className="text-ink-muted text-base leading-relaxed">
                         {service.copy}
                       </p>
 
@@ -206,7 +206,7 @@ export default function ServicesPage() {
                         <h3 className="text-xs font-bold uppercase tracking-[0.08em] text-ink mb-2.5">
                           What We Deliver:
                         </h3>
-                        <ul className="space-y-2 text-xs text-ink-muted">
+                        <ul className="space-y-2 text-sm sm:text-base text-ink-muted">
                           {service.deliverables.map((item) => (
                             <li key={item} className="flex items-start gap-2">
                               <span className="w-1.5 h-1.5 rounded-full bg-action-primary mt-1.5 shrink-0" />
@@ -218,7 +218,7 @@ export default function ServicesPage() {
                     </div>
 
                     <div className="pt-8 mt-8 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-4">
-                      <span className="text-xs text-ink-muted">
+                      <span className="text-sm text-ink-muted">
                         Production-grade delivery with SLA guarantees
                       </span>
                       <Link

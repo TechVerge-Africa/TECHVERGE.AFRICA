@@ -14,7 +14,7 @@ import {
 import { BrandStripes, tone } from '@/components/Brand';
 
 export const metadata = {
-  title: 'Techverge Africa Ltd | Engineering the Future of African Enterprise',
+  title: { absolute: 'Techverge Africa Ltd | Engineering the Future of African Enterprise' },
   description:
     'Techverge Africa Ltd builds innovative solutions through research for Africa and the world, delivering production-grade software, secure cloud infrastructure, and custom AI integrations.',
 };
@@ -171,9 +171,10 @@ export default function HomePage() {
                 />
                 <div className="relative h-[360px] sm:h-[440px] lg:h-[480px] w-full rounded-hero overflow-hidden bg-surface-2 shadow-soft">
                   <Image
-                    src="/images/hero-african-executives.jpg"
+                    src="/images/hero-african-executives.webp"
                     alt="African enterprise executives and senior software engineers collaborating in a modern corporate technology office"
                     fill
+                    sizes="(min-width: 1024px) 480px, 100vw"
                     priority
                     className="object-cover"
                   />
@@ -212,24 +213,24 @@ export default function HomePage() {
               return (
                 <div
                   key={pillar.title}
-                  className={`bg-surface-1 border border-line ${tone(i).top} rounded-card p-8 flex flex-col justify-between hover:-translate-y-1 hover:shadow-soft transition-all duration-200 group`}
+                  className={`bg-surface-1 border border-line ${tone(i).top} rounded-card p-8 flex flex-col justify-between hover:-translate-y-0.5 hover:shadow-soft motion-reduce:hover:translate-y-0 transition-[transform,box-shadow,background-color] ease-out duration-200 group`}
                 >
                   <div className="space-y-4">
                     <div className={`w-12 h-12 rounded-button ${tone(i).tile} flex items-center justify-center group-hover:scale-105 transition-transform`}>
                       <Icon strokeWidth={1.75} size={24} />
                     </div>
-                    <span className={`text-[11px] font-bold uppercase tracking-[0.08em] ${tone(i).text} block`}>
+                    <span className={`text-xs font-bold uppercase tracking-[0.08em] ${tone(i).text} block`}>
                       {pillar.highlight}
                     </span>
                     <h3 className="text-h3">
                       {pillar.title}
                     </h3>
-                    <p className="text-sm text-ink-muted leading-relaxed">
+                    <p className="text-base text-ink-muted leading-relaxed">
                       {pillar.desc}
                     </p>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-line flex items-center gap-2 text-xs text-ink-muted">
+                  <div className="pt-6 mt-6 border-t border-line flex items-center gap-2 text-sm text-ink-muted">
                     <CheckCircle2 strokeWidth={1.75} size={14} className="text-brand-green-deep" />
                     <span>Production-proven standard</span>
                   </div>
@@ -272,7 +273,7 @@ export default function HomePage() {
               return (
                 <div
                   key={svc.id}
-                  className={`p-8 rounded-card bg-surface-0 border border-line ${tone(i).top} hover:bg-surface-1 hover:-translate-y-1 hover:shadow-soft transition-all duration-200 flex flex-col justify-between group`}
+                  className={`p-8 rounded-card bg-surface-0 border border-line ${tone(i).top} hover:bg-surface-1 hover:-translate-y-0.5 hover:shadow-soft motion-reduce:hover:translate-y-0 transition-[transform,box-shadow,background-color] ease-out duration-200 flex flex-col justify-between group`}
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
@@ -287,7 +288,7 @@ export default function HomePage() {
                     <h3 className="text-h3 group-hover:text-action-primary transition-colors">
                       {svc.title}
                     </h3>
-                    <p className="text-sm text-ink-muted leading-relaxed">
+                    <p className="text-base text-ink-muted leading-relaxed">
                       {svc.desc}
                     </p>
                   </div>
@@ -295,7 +296,7 @@ export default function HomePage() {
                   <div className="pt-6 mt-6 border-t border-line">
                     <Link
                       href={svc.link}
-                      className="inline-flex items-center gap-2 text-xs font-bold text-ink group-hover:text-action-primary transition-colors"
+                      className="inline-flex items-center gap-2 text-sm font-bold text-ink group-hover:text-action-primary transition-colors"
                     >
                       <span>Read capability breakdown</span>
                       <ArrowRight strokeWidth={1.75} size={14} />
@@ -323,35 +324,35 @@ export default function HomePage() {
                 Built with Battle-Tested Technologies
               </h3>
             </div>
-            <p className="text-xs sm:text-sm text-ink-muted max-w-md">
+            <p className="text-sm sm:text-base text-ink-muted max-w-md">
               We leverage production-grade open-source ecosystems and enterprise clouds tailored for high concurrency, zero memory leaks, and seamless multi-region deployment.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 text-xs">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 text-sm">
             <div className="p-4 rounded-card bg-surface-1 border border-line text-center space-y-1 hover:border-action-primary/40 transition-colors">
               <span className="text-ink font-bold block">Next.js 15 / React</span>
-              <span className="text-[10px] text-ink-muted">High-Performance Web</span>
+              <span className="text-xs text-ink-muted">High-Performance Web</span>
             </div>
             <div className="p-4 rounded-card bg-surface-1 border border-line text-center space-y-1 hover:border-action-primary/40 transition-colors">
               <span className="text-ink font-bold block">TypeScript / Node</span>
-              <span className="text-[10px] text-ink-muted">Type-Safe Backend</span>
+              <span className="text-xs text-ink-muted">Type-Safe Backend</span>
             </div>
             <div className="p-4 rounded-card bg-surface-1 border border-line text-center space-y-1 hover:border-action-primary/40 transition-colors">
               <span className="text-ink font-bold block">Python / FastAPI</span>
-              <span className="text-[10px] text-ink-muted">AI &amp; Data Microservices</span>
+              <span className="text-xs text-ink-muted">AI &amp; Data Microservices</span>
             </div>
             <div className="p-4 rounded-card bg-surface-1 border border-line text-center space-y-1 hover:border-action-primary/40 transition-colors">
               <span className="text-ink font-bold block">PostgreSQL &amp; Redis</span>
-              <span className="text-[10px] text-ink-muted">ACID &amp; Memory Tier</span>
+              <span className="text-xs text-ink-muted">ACID &amp; Memory Tier</span>
             </div>
             <div className="p-4 rounded-card bg-surface-1 border border-line text-center space-y-1 hover:border-action-primary/40 transition-colors">
               <span className="text-ink font-bold block">Kubernetes &amp; Docker</span>
-              <span className="text-[10px] text-ink-muted">Cloud Orchestration</span>
+              <span className="text-xs text-ink-muted">Cloud Orchestration</span>
             </div>
             <div className="p-4 rounded-card bg-surface-1 border border-line text-center space-y-1 hover:border-action-primary/40 transition-colors">
               <span className="text-ink font-bold block">AWS &amp; GCP</span>
-              <span className="text-[10px] text-ink-muted">Multi-Cloud Fabric</span>
+              <span className="text-xs text-ink-muted">Multi-Cloud Fabric</span>
             </div>
           </div>
         </div>
@@ -377,7 +378,7 @@ export default function HomePage() {
                   Headquartered in Kumasi, Techverge Africa Ltd combines deep regional insights with global technology standards. We partner with forward-thinking enterprises, growing startups, and public bodies ready to build production-grade technology that lasts.
                 </p>
                 
-                <div className="pt-2 flex flex-wrap items-center gap-3 text-xs text-white/80">
+                <div className="pt-2 flex flex-wrap items-center gap-3 text-sm text-white/80">
                   <span className="bg-white/10 px-3.5 py-2 rounded-button border border-white/15">
                     Techverge Africa Ltd &middot; Registered in Ghana
                   </span>
@@ -391,9 +392,10 @@ export default function HomePage() {
               <div className="lg:col-span-5">
                 <div className="relative h-72 sm:h-80 w-full rounded-card overflow-hidden border border-white/15 bg-brand-midnight">
                   <Image
-                    src="/images/hero-enterprise.jpg"
+                    src="/images/hero-enterprise.webp"
                     alt="Techverge Africa enterprise cloud architecture visualization"
                     fill
+                    sizes="(min-width: 1024px) 420px, 100vw"
                     className="object-cover"
                   />
                 </div>

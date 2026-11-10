@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Mail } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Techverge Africa Ltd',
+  title: { absolute: 'Terms of Service | Techverge Africa Ltd' },
   description:
     'Commercial terms of service, engagement protocols, and software warranties for Techverge Africa Ltd.',
 };
@@ -35,7 +35,7 @@ export default function TermsPage() {
       <section className="py-16 md:py-24 bg-surface-1">
         <div className="container-site max-w-4xl space-y-10 text-ink leading-relaxed text-sm sm:text-base">
           
-          <div className="p-5 rounded-card bg-surface-0 border border-line space-y-2 text-xs text-ink">
+          <div className="p-5 rounded-card bg-surface-0 border border-line space-y-2 text-sm text-ink">
             <p className="font-bold text-ink text-sm">Contracting Entity:</p>
             <p>Techverge Africa Ltd &middot; Registered Private Limited Company</p>
             <p>Governing Law: Republic of Ghana &middot; Jurisdiction: Courts of Ghana</p>

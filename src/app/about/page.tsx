@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About Us | Techverge Africa Ltd',
+  title: { absolute: 'About Us | Techverge Africa Ltd' },
   description:
     'Driving digital evolution from the heart of Ashanti. Learn about Techverge Africa Ltd, our mission, vision, and engineering leadership in Kumasi, Ghana.',
 };
@@ -22,7 +22,7 @@ const executiveLeadership = [
     role: 'Co-founder & Chief Executive Officer',
     badge: 'CO-FOUNDER & CEO',
     focus: 'Enterprise Systems Architecture & Corporate Strategy',
-    image: '/images/team/latif.jpg',
+    image: '/images/team/latif.webp',
     bio: 'Systems engineer and technology entrepreneur. Directs corporate strategy and engineering standards across software, cloud infrastructure, and artificial intelligence initiatives for African enterprise.',
     linkedin: 'https://www.linkedin.com/in/abdul-latif-sulley',
     github: 'https://github.com/asulley',
@@ -33,7 +33,7 @@ const executiveLeadership = [
     role: 'Co-founder & Chief Technology Office',
     badge: 'CO-FOUNDER & CTO',
     focus: 'Full-Stack Architecture & Engineering Operations',
-    image: '/images/team/ishaq.jpg',
+    image: '/images/team/ishaq.webp',
     bio: 'Tech entrepreneur, Senior systems architect and co-founder directing engineering delivery, system security, and developer operations. Leads technical design for scalable backend APIs and high-concurrency enterprise applications.',
     linkedin: 'https://linkedin.com',
     github: 'https://github.com',
@@ -44,7 +44,7 @@ const executiveLeadership = [
     role: 'Secretary & Customer Relations',
     badge: 'EXECUTIVE SECRETARY',
     focus: 'Corporate Governance & Institutional Client Success',
-    image: '/images/team/robert.jpg',
+    image: '/images/team/robert.webp',
     bio: 'Oversees corporate administration, enterprise client onboarding, and customer relations. Ensures transparent stakeholder communication, regulatory compliance, and seamless operational coordination.',
     linkedin: 'https://linkedin.com',
     github: 'https://github.com',
@@ -98,7 +98,7 @@ export default function AboutPage() {
               </div>
 
               {/* Official Credibility Box */}
-              <div className="p-5 rounded-card bg-surface-1 border border-line space-y-2 text-xs text-ink">
+              <div className="p-5 rounded-card bg-surface-1 border border-line space-y-2 text-sm text-ink">
                 <div className="flex items-center justify-between">
                   <span className="text-ink-muted">Corporate Entity:</span>
                   <span className="font-bold text-ink">Techverge Africa Ltd</span>
@@ -121,6 +121,7 @@ export default function AboutPage() {
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
                   alt="Techverge Africa engineering workspace"
                   fill
+                  sizes="(min-width: 1024px) 480px, 100vw"
                   className="object-cover"
                 />
               </div>
@@ -147,7 +148,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-line flex items-center gap-2 text-xs text-ink-muted">
+              <div className="pt-6 mt-6 border-t border-line flex items-center gap-2 text-sm text-ink-muted">
                 <CheckCircle2 strokeWidth={1.75} size={14} className="text-action-primary" />
                 <span>Execution-driven engineering roadmap</span>
               </div>
@@ -170,7 +171,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-line flex items-center gap-2 text-xs text-ink-muted">
+              <div className="pt-6 mt-6 border-t border-line flex items-center gap-2 text-sm text-ink-muted">
                 <CheckCircle2 strokeWidth={1.75} size={14} className="text-brand-green-deep" />
                 <span>Building for multi-generational scale</span>
               </div>
@@ -197,7 +198,7 @@ export default function AboutPage() {
             {executiveLeadership.map((member, i) => (
               <div
                 key={member.name}
-                className={`bg-surface-0 border border-line ${tone(i).top} rounded-card overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:shadow-soft transition-all duration-300 group`}
+                className={`bg-surface-0 border border-line ${tone(i).top} rounded-card overflow-hidden flex flex-col justify-between hover:-translate-y-0.5 hover:shadow-soft motion-reduce:hover:translate-y-0 transition-[transform,box-shadow,background-color] ease-out duration-200 group`}
               >
                 <div>
                   <div className="relative w-full aspect-square overflow-hidden bg-surface-1/10">
@@ -205,9 +206,10 @@ export default function AboutPage() {
                       src={member.image}
                       alt={`${member.name} - ${member.role}`}
                       fill
+                      sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
                       className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
-                    <span className="absolute top-3 left-3 text-[10px] font-bold text-white bg-action-primary px-2.5 py-1 rounded-md">
+                    <span className="absolute top-3 left-3 text-xs font-bold text-white bg-action-primary px-2.5 py-1 rounded-md">
                       {member.badge}
                     </span>
                   </div>
@@ -216,19 +218,19 @@ export default function AboutPage() {
                     <h3 className="text-h3 mb-0.5">
                       {member.name}
                     </h3>
-                    <p className="text-xs font-semibold text-action-primary mb-1">
+                    <p className="text-sm font-semibold text-action-primary mb-1">
                       {member.role}
                     </p>
-                    <p className="text-[11px] text-ink-muted mb-3 font-medium">
+                    <p className="text-xs text-ink-muted mb-3 font-medium">
                       {member.focus}
                     </p>
-                    <p className="text-sm text-ink-muted leading-relaxed">
+                    <p className="text-base text-ink-muted leading-relaxed">
                       {member.bio}
                     </p>
                   </div>
                 </div>
 
-                <div className="px-6 pb-6 pt-3 border-t border-line flex items-center gap-3 text-xs">
+                <div className="px-6 pb-6 pt-3 border-t border-line flex items-center gap-3 text-sm">
                   <a
                     href={member.linkedin}
                     target="_blank"

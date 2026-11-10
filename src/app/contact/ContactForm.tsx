@@ -23,30 +23,34 @@ export default function ContactForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
+  type FieldName = 'fullName' | 'email' | 'message';
+  const [errors, setErrors] = useState<Partial<Record<FieldName, string>>>({});
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errorMsg) setErrorMsg('');
+    if (name in errors) setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMsg('');
-
+    // Check every required field, show each error under its field, focus the first one.
+    const next: Partial<Record<FieldName, string>> = {};
     if (!formData.fullName.trim()) {
-      setErrorMsg('Please enter your full name.');
-      return;
+      next.fullName = 'Please enter your full name.';
     }
     if (!formData.email.trim() || !formData.email.includes('@')) {
-      setErrorMsg('Please enter a valid email address.');
-      return;
+      next.email = 'Please enter a valid email address.';
     }
     if (!formData.message.trim() || formData.message.trim().length < 10) {
-      setErrorMsg('Please enter a message with at least 10 characters.');
+      next.message = 'Please enter a message with at least 10 characters.';
+    }
+    setErrors(next);
+    const firstInvalid = (['fullName', 'email', 'message'] as FieldName[]).find((f) => next[f]);
+    if (firstInvalid) {
+      document.getElementById(firstInvalid)?.focus();
       return;
     }
 
@@ -72,7 +76,7 @@ export default function ContactForm() {
           <h3 className="text-h3">
             Thank you, {formData.fullName}.
           </h3>
-          <p className="text-sm text-ink-muted max-w-md mx-auto leading-relaxed">
+          <p className="text-base text-ink-muted max-w-md mx-auto leading-relaxed">
             Your message has been sent successfully. Our team has received your details and will get back to you within 24 hours.
           </p>
         </div>
@@ -109,19 +113,14 @@ export default function ContactForm() {
     );
   }
 
-  const labelCls = 'block text-xs font-semibold text-ink mb-1.5';
+  const labelCls = 'block text-sm font-semibold text-ink mb-1.5';
   const inputCls =
-    'w-full px-4 py-2.5 rounded-button bg-surface-1 border border-line text-ink placeholder:text-ink-muted/70 text-sm focus:outline-none focus:border-action-primary focus:ring-2 focus:ring-action-primary/20 transition-all';
+    'w-full min-h-12 px-4 py-3 rounded-input bg-surface-1 border border-line text-ink placeholder:text-ink-muted/70 text-base focus:outline-none focus:border-action-primary focus:ring-2 focus:ring-action-primary/20 transition-[border-color,box-shadow] duration-150';
+  const fieldCls = (invalid: boolean) =>
+    invalid ? `${inputCls} border-[#C02626] focus:border-[#C02626] focus:ring-[#C02626]/20` : inputCls;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-      {errorMsg && (
-        <div className="p-3.5 rounded-button bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
-          <AlertCircle strokeWidth={1.75} size={16} className="shrink-0" />
-          <span>{errorMsg}</span>
-        </div>
-      )}
-
       {/* Row 1: Name & Company */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
@@ -133,11 +132,16 @@ export default function ContactForm() {
             id="fullName"
             name="fullName"
             required
+            autoComplete="name"
+            aria-required="true"
+            aria-invalid={!!errors.fullName}
+            aria-describedby={errors.fullName ? 'fullName-error' : undefined}
             value={formData.fullName}
             onChange={handleChange}
             placeholder="e.g. Kwame Mensah"
-            className={inputCls}
+            className={fieldCls(!!errors.fullName)}
           />
+          <FieldError id="fullName-error" message={errors.fullName} />
         </div>
 
         <div>
@@ -148,6 +152,7 @@ export default function ContactForm() {
             type="text"
             id="company"
             name="company"
+            autoComplete="organization"
             value={formData.company}
             onChange={handleChange}
             placeholder="e.g. Mensah Enterprises"
@@ -167,11 +172,17 @@ export default function ContactForm() {
             id="email"
             name="email"
             required
+            autoComplete="email"
+            inputMode="email"
+            aria-required="true"
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? 'email-error' : undefined}
             value={formData.email}
             onChange={handleChange}
             placeholder="kwame@example.com"
-            className={inputCls}
+            className={fieldCls(!!errors.email)}
           />
+          <FieldError id="email-error" message={errors.email} />
         </div>
 
         <div>
@@ -182,6 +193,8 @@ export default function ContactForm() {
             type="tel"
             id="phone"
             name="phone"
+            autoComplete="tel"
+            inputMode="tel"
             value={formData.phone}
             onChange={handleChange}
             placeholder="+233 50 123 4567"
@@ -225,11 +238,15 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
+          aria-required="true"
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? 'message-error' : undefined}
           value={formData.message}
           onChange={handleChange}
           placeholder="Tell us about your project requirements, technical challenges, or scaling goals..."
-          className={`${inputCls} resize-y`}
+          className={`${fieldCls(!!errors.message)} resize-y`}
         />
+        <FieldError id="message-error" message={errors.message} />
       </div>
 
       {/* Submit Button */}
@@ -237,7 +254,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-button bg-action-primary hover:bg-action-hover active:scale-95 text-white font-bold text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-action-primary disabled:opacity-50"
+          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-button bg-action-primary hover:bg-action-hover active:scale-[0.98] min-h-12 text-white font-bold text-sm transition-[background-color,transform] duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-action-primary disabled:opacity-50"
         >
           {isSubmitting ? (
             <span>Sending...</span>
@@ -249,10 +266,21 @@ export default function ContactForm() {
           )}
         </button>
 
-        <p className="text-xs text-ink-muted font-normal">
+        <p className="text-sm text-ink-muted font-normal">
           We respect your privacy &middot; Response within 24 hours
         </p>
       </div>
     </form>
+  );
+}
+
+/** Error shown directly under its field and announced to screen readers. */
+function FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) return null;
+  return (
+    <p id={id} role="alert" className="mt-1.5 flex items-start gap-1.5 text-sm text-[#B42318]">
+      <AlertCircle strokeWidth={1.75} size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
+      <span>{message}</span>
+    </p>
   );
 }

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Mail } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Techverge Africa Ltd',
+  title: { absolute: 'Privacy Policy | Techverge Africa Ltd' },
   description:
     'Privacy Policy and institutional data governance principles for Techverge Africa Ltd, incorporated in Ghana.',
 };
@@ -35,7 +35,7 @@ export default function PrivacyPage() {
       <section className="py-16 md:py-24 bg-surface-1">
         <div className="container-site max-w-4xl space-y-10 text-ink leading-relaxed text-sm sm:text-base">
           
-          <div className="p-5 rounded-card bg-surface-0 border border-line space-y-2 text-xs text-ink">
+          <div className="p-5 rounded-card bg-surface-0 border border-line space-y-2 text-sm text-ink">
             <p className="font-bold text-ink text-sm">Techverge Africa Ltd Corporate Information:</p>
             <p>Corporate Status: Registered Private Limited Company &middot; Republic of Ghana</p>
             <p>Headquarters: Kumasi, Ghana &middot; Email: info@techverge.africa</p>
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
             <p>
               For privacy audits, data subject requests, or security disclosures, please contact our legal and compliance department directly:
             </p>
-            <div className="p-4 rounded-button bg-surface-0 border border-line text-xs text-ink space-y-1">
+            <div className="p-4 rounded-button bg-surface-0 border border-line text-sm text-ink space-y-1">
               <p>Email: <a href="mailto:info@techverge.africa" className="text-action-primary underline">info@techverge.africa</a></p>
               <p>Phone: +233 59 150 7448</p>
             </div>

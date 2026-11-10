@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Insights & Technical Perspectives | Techverge Africa Ltd',
+  title: { absolute: 'Insights & Technical Perspectives | Techverge Africa Ltd' },
   description:
     'In-depth engineering analyses, cloud architecture whitepapers, and artificial intelligence perspectives for modern African enterprises.',
 };
@@ -82,7 +82,7 @@ export default function InsightsPage() {
             {articles.map((item) => (
               <article
                 key={item.slug}
-                className="bg-surface-1 border border-line rounded-card overflow-hidden hover:border-action-primary/40 transition-all flex flex-col justify-between group"
+                className="bg-surface-1 border border-line rounded-card overflow-hidden hover:border-action-primary/40 transition-colors duration-200 flex flex-col justify-between group"
               >
                 <div>
                   <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-surface-2">
@@ -96,7 +96,7 @@ export default function InsightsPage() {
                   </div>
 
                   <div className="p-6 sm:p-8">
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-ink-muted mb-3">
+                    <div className="flex flex-wrap items-center gap-3 text-sm text-ink-muted mb-3">
                       <span className="px-2.5 py-0.5 rounded-full bg-surface-2 text-action-primary font-bold border border-line">
                         {item.category}
                       </span>
@@ -116,14 +116,14 @@ export default function InsightsPage() {
                       {item.title}
                     </h2>
 
-                    <p className="text-sm text-ink-muted leading-relaxed">
+                    <p className="text-base text-ink-muted leading-relaxed">
                       {item.excerpt}
                     </p>
                   </div>
                 </div>
 
                 <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-4 border-t border-line flex items-center justify-between">
-                  <span className="text-xs text-ink-muted font-semibold">
+                  <span className="text-sm text-ink-muted font-semibold">
                     Techverge Engineering Lead
                   </span>
                   <Link

@@ -71,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sora.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${sora.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-surface-0 text-ink font-sans antialiased flex flex-col">
         {/* Skip to main content for accessibility */}
         <a

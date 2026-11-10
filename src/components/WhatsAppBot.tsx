@@ -190,7 +190,7 @@ export default function WhatsAppBot() {
             role="dialog"
             aria-modal="true"
             aria-label="TechVerge WhatsApp Assistant"
-            className="mb-3 w-[calc(100vw-2rem)] max-w-sm sm:w-[380px] h-[520px] max-h-[calc(100dvh-5.5rem)] bg-surface-1 rounded-card shadow-2xl border border-line flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200 touch-manipulation"
+            className="mb-3 w-[calc(100vw-2rem)] max-w-sm sm:w-[380px] h-[520px] max-h-[calc(100dvh-5.5rem)] bg-surface-1 rounded-card shadow-2xl border border-line flex flex-col overflow-hidden tv-pop touch-manipulation"
           >
             {/* Window Header */}
             <div className="bg-brand-navy text-white px-4 py-3.5 flex items-center justify-between border-b border-white/15 shrink-0">
@@ -209,7 +209,7 @@ export default function WhatsAppBot() {
                       ✓
                     </span>
                   </div>
-                  <p className="text-[11px] text-brand-green-bright font-medium truncate">
+                  <p className="text-xs text-brand-green-bright font-medium truncate">
                     WhatsApp Support
                   </p>
                 </div>
@@ -218,7 +218,7 @@ export default function WhatsAppBot() {
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white/80 hover:text-white flex items-center justify-center transition-all shrink-0 ml-2"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white/80 hover:text-white flex items-center justify-center transition-[background-color,color,transform] duration-150 shrink-0 ml-2"
                 aria-label="Close chat window"
               >
                 <X strokeWidth={1.75} size={18} />
@@ -226,7 +226,7 @@ export default function WhatsAppBot() {
             </div>
 
             {/* Subheader status strip */}
-            <div className="bg-surface-0 border-b border-line px-4 py-1.5 text-[11px] text-ink-muted flex items-center justify-between shrink-0">
+            <div className="bg-surface-0 border-b border-line px-4 py-1.5 text-xs text-ink-muted flex items-center justify-between shrink-0">
               <span className="truncate">Official: +233 59 150 7448</span>
               <span className="text-brand-green-deep font-semibold flex items-center gap-1 shrink-0 ml-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-green" />
@@ -235,7 +235,7 @@ export default function WhatsAppBot() {
             </div>
 
             {/* Messages Body */}
-            <div className="flex-1 overflow-y-auto overscroll-contain p-3.5 sm:p-4 space-y-3 bg-surface-0 text-xs">
+            <div className="flex-1 overflow-y-auto overscroll-contain p-3.5 sm:p-4 space-y-3 bg-surface-0 text-sm">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -246,7 +246,7 @@ export default function WhatsAppBot() {
                   >
                     <p className="break-words">{msg.text}</p>
                     <div
-                      className={`text-[9px] mt-1 flex items-center justify-end gap-1 ${ msg.sender === 'user' ? 'text-white/80' : 'text-ink-muted' }`}
+                      className={`text-xs mt-1 flex items-center justify-end gap-1 ${ msg.sender === 'user' ? 'text-white/80' : 'text-ink-muted' }`}
                     >
                       <span>{msg.time}</span>
                       {msg.sender === 'user' && <CheckCheck strokeWidth={1.75} size={11} className="text-white/80" />}
@@ -257,7 +257,7 @@ export default function WhatsAppBot() {
 
               {/* Quick action buttons */}
               <div className="pt-2 space-y-1.5">
-                <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-ink-muted px-1">
+                <p className="text-xs font-bold uppercase tracking-[0.08em] text-ink-muted px-1">
                   Select a topic or type below:
                 </p>
                 <div className="flex flex-col gap-1.5">
@@ -266,7 +266,7 @@ export default function WhatsAppBot() {
                       key={opt.id}
                       type="button"
                       onClick={() => handleSelectOption(opt)}
-                      className="w-full text-left px-3 py-2.5 rounded-button bg-surface-1 hover:bg-surface-2 active:bg-surface-2 text-ink hover:text-ink border border-line hover:border-action-primary transition-all text-xs font-medium shadow-2xs flex items-center justify-between group active:scale-[0.99]"
+                      className="w-full text-left px-3 py-2.5 rounded-button bg-surface-1 hover:bg-surface-2 active:bg-surface-2 text-ink hover:text-ink border border-line hover:border-action-primary transition-colors duration-150 text-sm font-medium shadow-2xs flex items-center justify-between group active:scale-[0.99]"
                     >
                       <span className="truncate pr-2">{opt.label}</span>
                       <ArrowRight size={16} strokeWidth={1.75} aria-hidden="true" className="text-ink-muted group-hover:text-action-primary shrink-0" />
@@ -283,19 +283,19 @@ export default function WhatsAppBot() {
               onSubmit={handleSendMessage}
               className="p-2.5 sm:p-3 bg-surface-1 border-t border-line flex items-center gap-2 shrink-0"
             >
-              {/* text-base on mobile prevents iOS Safari auto-zoom; sm:text-xs on desktop */}
+              {/* 16px input text prevents iOS Safari auto-zoom */}
               <input
                 ref={inputRef}
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Type your message to WhatsApp..."
-                className="flex-1 px-3.5 py-2.5 rounded-button bg-surface-0 border border-line text-base sm:text-xs text-ink placeholder:text-ink-muted/70 focus:outline-none focus:border-action-primary focus:bg-surface-1 transition-all min-w-0"
+                className="flex-1 px-3.5 py-2.5 rounded-button bg-surface-0 border border-line text-base text-ink placeholder:text-ink-muted/70 focus:outline-none focus:border-action-primary focus:bg-surface-1 transition-[border-color,background-color] duration-150 min-w-0"
               />
               <button
                 type="submit"
                 disabled={!inputValue.trim()}
-                className="w-10 h-10 rounded-button bg-action-primary hover:bg-action-hover active:scale-95 disabled:opacity-40 text-white flex items-center justify-center transition-all shrink-0 shadow-sm"
+                className="w-10 h-10 rounded-button bg-action-primary hover:bg-action-hover active:scale-95 disabled:opacity-40 text-white flex items-center justify-center transition-[background-color,transform] duration-150 shrink-0 shadow-sm"
                 aria-label="Send message to WhatsApp"
               >
                 <Send strokeWidth={1.75} size={16} />
@@ -307,7 +307,7 @@ export default function WhatsAppBot() {
               <button
                 type="button"
                 onClick={() => openWhatsApp('Hello TechVerge Africa! I am reaching out from your website.')}
-                className="text-[11px] font-semibold text-brand-green-deep hover:text-brand-green-deep flex items-center justify-center gap-1.5 mx-auto py-1"
+                className="text-sm font-semibold text-action-primary hover:text-action-hover flex items-center justify-center gap-1.5 mx-auto py-2"
               >
                 <WhatsAppIcon className="w-3.5 h-3.5 fill-current shrink-0" />
                 <span className="truncate">Or click to start direct chat on WhatsApp</span>
@@ -321,16 +321,15 @@ export default function WhatsAppBot() {
           id="whatsapp-trigger-btn"
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="group relative flex items-center justify-center gap-2 h-12 px-4 sm:h-12 rounded-full bg-action-primary hover:bg-action-hover text-white font-bold text-xs shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 border-2 border-white/50 touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-action-primary focus-visible:ring-offset-2"
+          className="group relative flex items-center justify-center gap-2 h-12 px-4 sm:h-12 rounded-full bg-action-primary hover:bg-action-hover text-white font-bold text-xs shadow-xl hover:shadow-2xl active:scale-95 transition-[background-color,box-shadow,transform] duration-150 border-2 border-white/50 touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-action-primary focus-visible:ring-offset-2"
           aria-label={isOpen ? 'Close WhatsApp Assistant' : 'Open WhatsApp Assistant'}
         >
           <WhatsAppIcon className="w-5 h-5 fill-current shrink-0" />
-          <span className="font-semibold text-xs whitespace-nowrap">Chat with Us</span>
+          <span className="font-semibold text-sm whitespace-nowrap">Chat with Us</span>
 
           {/* Unread notification ping */}
           {hasUnread && !isOpen && (
             <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green-bright opacity-75" />
               <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-green-bright border-2 border-white" />
             </span>
           )}

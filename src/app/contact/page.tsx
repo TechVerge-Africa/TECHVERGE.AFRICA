@@ -4,7 +4,7 @@ import ContactForm from './ContactForm';
 import { Mail, Phone, MapPin, MessageSquare, Clock, ShieldCheck, ArrowUpRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Partner With Techverge Africa Ltd',
+  title: { absolute: 'Contact Us | Partner With Techverge Africa Ltd' },
   description:
     'Let’s build something massive together. Tell us about your project requirements, technical challenges, or scaling goals. Headquartered in Kumasi, Ghana.',
 };
@@ -38,7 +38,7 @@ export default function ContactPage() {
                 <h2 className="text-h2 mb-4">
                   Let&apos;s discuss your project
                 </h2>
-                <p className="text-sm text-ink-muted leading-relaxed">
+                <p className="text-base text-ink-muted leading-relaxed">
                   Whether you need custom software, cloud infrastructure, AI solutions, or strategic consulting, our team is ready to collaborate.
                 </p>
               </div>
@@ -59,7 +59,7 @@ export default function ContactPage() {
                     >
                       info@techverge.africa
                     </a>
-                    <p className="text-xs text-ink-muted mt-0.5">24-hour response guarantee</p>
+                    <p className="text-sm text-ink-muted mt-0.5">24-hour response guarantee</p>
                   </div>
                 </div>
 
@@ -89,7 +89,7 @@ export default function ContactPage() {
                     <p className="text-sm font-bold text-ink leading-snug">
                       Kumasi, Ghana
                     </p>
-                    <p className="text-xs text-ink-muted mt-0.5">Ashanti Region &middot; West Africa</p>
+                    <p className="text-sm text-ink-muted mt-0.5">Ashanti Region &middot; West Africa</p>
                   </div>
                 </div>
               </div>
@@ -100,14 +100,14 @@ export default function ContactPage() {
                   <MessageSquare strokeWidth={1.75} size={16} className="text-brand-green-deep" />
                   <span>Prefer rapid messaging?</span>
                 </div>
-                <p className="text-xs text-ink leading-relaxed">
+                <p className="text-sm text-ink leading-relaxed">
                   Start a direct chat with our engineering lead via WhatsApp for quick project scoping and preliminary feasibility questions.
                 </p>
                 <a
                   href="https://wa.me/233591507448?text=Hello%20Techverge%20Africa!%20I%20would%20like%20to%20discuss%20a%20new%20technology%20project."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-button bg-action-primary hover:bg-action-hover text-white font-bold text-xs transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-button bg-action-primary hover:bg-action-hover text-white font-bold text-sm transition-colors"
                 >
                   <span>Chat on WhatsApp (+233 59 150 7448)</span>
                   <ArrowUpRight strokeWidth={1.75} size={14} />
@@ -115,7 +115,7 @@ export default function ContactPage() {
               </div>
 
               {/* Legal Credibility Note */}
-              <div className="p-4 rounded-card bg-surface-1 border border-line text-xs text-ink-muted space-y-1">
+              <div className="p-4 rounded-card bg-surface-1 border border-line text-sm text-ink-muted space-y-1">
                 <div className="flex items-center justify-between">
                   <span className="text-ink-muted">Corporate Entity:</span>
                   <span className="font-bold text-ink">Techverge Africa Ltd</span>
@@ -132,14 +132,15 @@ export default function ContactPage() {
                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
                   alt="Techverge Africa engineering consultation center"
                   fill
+                  sizes="(min-width: 1024px) 420px, 100vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-midnight/90 via-brand-midnight/30 to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <span className="text-[10px] uppercase tracking-[0.08em] text-brand-green-bright font-bold block mb-0.5">
+                  <span className="text-xs uppercase tracking-[0.08em] text-brand-green-bright font-bold block mb-0.5">
                     Consultation &amp; Scoping Hub
                   </span>
-                  <p className="text-xs font-semibold text-white">
+                  <p className="text-sm font-semibold text-white">
                     On-Site &amp; Pan-African Remote Deployments
                   </p>
                 </div>
@@ -153,7 +154,7 @@ export default function ContactPage() {
                 <h3 className="text-h3">
                   Send Us a Message
                 </h3>
-                <p className="text-xs sm:text-sm text-ink-muted mt-1 leading-relaxed">
+                <p className="text-sm sm:text-base text-ink-muted mt-1 leading-relaxed">
                   Fill out the form below and our team will get back to you within 24 hours.
                 </p>
               </div>

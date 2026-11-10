@@ -13,8 +13,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // DM Sans for text. Arial is the documented fallback.
-        sans: ["var(--font-dm-sans)", "Arial", "system-ui", "sans-serif"],
+        // Roboto for all body and UI text. Arial is the documented fallback.
+        sans: ["var(--font-roboto)", "Arial", "system-ui", "sans-serif"],
         // Oswald for every title and heading across the site
         heading: ["var(--font-oswald)", "Arial Narrow", "Arial", "sans-serif"],
         // Sora stays for the logo wordmark only

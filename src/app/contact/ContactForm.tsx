@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, ArrowUpRight, ChevronDown } from 'lucide-react';
 
 const serviceOptions = [
@@ -22,6 +22,19 @@ export default function ContactForm() {
     service: serviceOptions[0],
     message: '',
   });
+
+  // Preselect the service when arriving from a Services page button (/contact?service=...).
+  // Page titles can be longer than the dropdown labels, so match on either one starting with the other.
+  useEffect(() => {
+    const wanted = new URLSearchParams(window.location.search).get('service');
+    if (!wanted) return;
+    const w = wanted.toLowerCase();
+    const match = serviceOptions.find((o) => {
+      const l = o.toLowerCase();
+      return l === w || w.startsWith(l) || l.startsWith(w);
+    });
+    if (match) setFormData((prev) => ({ ...prev, service: match }));
+  }, []);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);

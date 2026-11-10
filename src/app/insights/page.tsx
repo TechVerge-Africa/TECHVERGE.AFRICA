@@ -137,7 +137,7 @@ export default function InsightsPage() {
                   </span>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-action-primary group-hover:text-action-hover transition-colors"
+                    className="inline-flex items-center py-3 -my-3 gap-1.5 text-sm font-bold text-action-primary group-hover:text-action-hover transition-colors"
                   >
                     <span>Discuss Implementation</span>
                     <ArrowRight strokeWidth={1.75} size={14} />

@@ -58,7 +58,7 @@ export default function ContactPage() {
                     </span>
                     <a
                       href="mailto:info@techverge.africa"
-                      className="text-sm font-bold text-ink hover:text-action-primary transition-colors"
+                      className="inline-block py-3 -my-3 text-sm font-bold text-ink hover:text-action-primary transition-colors"
                     >
                       info@techverge.africa
                     </a>

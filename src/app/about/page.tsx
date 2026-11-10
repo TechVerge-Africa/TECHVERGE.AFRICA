@@ -222,7 +222,7 @@ export default function AboutPage() {
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-ink-muted hover:text-action-primary transition-colors font-medium"
+                    className="inline-flex items-center py-3 -my-3 gap-1.5 text-ink-muted hover:text-action-primary transition-colors font-medium"
                     aria-label={`${member.name} LinkedIn Profile`}
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -235,7 +235,7 @@ export default function AboutPage() {
                     href={member.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-ink-muted hover:text-action-primary transition-colors font-medium"
+                    className="inline-flex items-center py-3 -my-3 gap-1.5 text-ink-muted hover:text-action-primary transition-colors font-medium"
                     aria-label={`${member.name} GitHub Profile`}
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">

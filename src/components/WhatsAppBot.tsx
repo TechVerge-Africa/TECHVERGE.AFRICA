@@ -65,7 +65,6 @@ export default function WhatsAppBot() {
     },
   ]);
   const [inputValue, setInputValue] = useState('');
-  const [hasUnread, setHasUnread] = useState(true);
 
   const chatEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -111,7 +110,6 @@ export default function WhatsAppBot() {
   // Focus input when opened
   useEffect(() => {
     if (isOpen) {
-      setHasUnread(false);
       const timer = setTimeout(() => {
         inputRef.current?.focus();
       }, 250);
@@ -336,13 +334,6 @@ export default function WhatsAppBot() {
         >
           <WhatsAppIcon className="w-5 h-5 fill-current shrink-0" />
           <span className="font-semibold text-sm whitespace-nowrap">Chat with Us</span>
-
-          {/* Unread notification ping */}
-          {hasUnread && !isOpen && (
-            <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-green-bright border-2 border-white" />
-            </span>
-          )}
         </button>
       </div>
     </>

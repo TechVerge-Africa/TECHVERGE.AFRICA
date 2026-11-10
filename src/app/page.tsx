@@ -278,7 +278,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/services"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-action-primary hover:text-action-hover transition-colors"
+              className="inline-flex items-center py-3 -my-3 gap-1.5 text-sm font-bold text-action-primary hover:text-action-hover transition-colors"
             >
               <span>Explore all technical capabilities</span>
               <ArrowRight strokeWidth={1.75} size={16} />
@@ -314,7 +314,7 @@ export default function HomePage() {
                   <div className="pt-6 mt-6 border-t border-line">
                     <Link
                       href={svc.link}
-                      className="inline-flex items-center gap-2 text-sm font-bold text-ink group-hover:text-action-primary transition-colors"
+                      className="inline-flex items-center py-3 -my-3 gap-2 text-sm font-bold text-ink group-hover:text-action-primary transition-colors"
                     >
                       <span>Read capability breakdown</span>
                       <ArrowRight strokeWidth={1.75} size={14} />

@@ -19,7 +19,7 @@ export default function TermsPage() {
         <div className="relative container-site max-w-4xl">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs font-bold text-action-primary hover:underline mb-6"
+            className="inline-flex items-center py-3 -my-3 gap-2 text-xs font-bold text-action-primary hover:underline mb-6"
           >
             <ArrowLeft strokeWidth={1.75} size={14} />
             <span>Back to Home</span>

@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import Logo from './Logo';
+import CurrentYear from './CurrentYear';
 import { BrandBar, BrandStripes } from './Brand';
 
 /*
  * Footer on Deep Navy (white on Deep Navy is 11.4:1).
  * Typography follows the brand guide: Sora Semi Bold for headings in sentence case,
- * DM Sans Regular for text at body size, contact details as plain text.
+ * Roboto for text at body size, contact details as plain text.
  * Colour is used sparingly: the V strip on top, the cover stripes, Bright Green for highlights.
  */
 
@@ -26,8 +27,6 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
 }
 
 export default function Footer() {
-  const currentYear = 2026;
-
   return (
     <footer className="relative overflow-hidden bg-brand-navy font-roboto text-base text-white/80">
       <BrandBar className="h-1.5" />
@@ -38,9 +37,8 @@ export default function Footer() {
         opacity={0.28}
       />
 
-      {/* Extra bottom padding keeps the last row clear of the floating chat button */}
-      <div className="container-site relative pt-16 pb-24">
-        <div className="grid grid-cols-1 gap-12 pb-12 md:grid-cols-12 lg:gap-16 border-b border-white/15">
+      <div className="container-site relative pt-10 pb-10">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 lg:gap-16">
 
           {/* About and contact */}
           <div className="md:col-span-5">
@@ -106,19 +104,23 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col gap-3 pt-8 text-sm text-white/65 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {currentYear} Techverge Africa Ltd. All Rights Reserved.</p>
+      </div>
+
+      {/* Bottom bar: white on Verge Blue (brand guide "Aa White on Blue", 6:1). Extra space (bottom on phones, right on wider screens)
+          keeps the links clear of the floating chat button. */}
+      <div className="relative bg-action-primary">
+        <div className="container-site flex flex-col gap-3 pt-6 pb-24 text-sm sm:flex-row sm:items-center sm:justify-between sm:pb-6 sm:pr-44 2xl:pr-6 text-white">
+          <p>&copy; <CurrentYear serverYear={new Date().getFullYear()} /> Techverge Africa Ltd. All Rights Reserved.</p>
           <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <Link href="/privacy" className="hover:text-white transition-colors">
+            <Link href="/privacy" className="underline-offset-4 decoration-2 hover:underline">
               Privacy Policy
             </Link>
-            <span aria-hidden="true" className="text-white/30">&middot;</span>
-            <Link href="/terms" className="hover:text-white transition-colors">
+            <span aria-hidden="true" className="text-white/60">&middot;</span>
+            <Link href="/terms" className="underline-offset-4 decoration-2 hover:underline">
               Terms of Service
             </Link>
-            <span aria-hidden="true" className="text-white/30">&middot;</span>
-            <Link href="/contact" className="hover:text-white transition-colors">
+            <span aria-hidden="true" className="text-white/60">&middot;</span>
+            <Link href="/contact" className="underline-offset-4 decoration-2 hover:underline">
               Contact Us
             </Link>
           </p>

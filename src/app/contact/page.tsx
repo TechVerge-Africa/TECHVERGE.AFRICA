@@ -117,18 +117,6 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              {/* Legal Credibility Note */}
-              <div className="p-4 rounded-card bg-surface-1 border border-line text-sm text-ink-muted space-y-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-ink-muted">Corporate Entity:</span>
-                  <span className="font-bold text-ink">Techverge Africa Ltd</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-ink-muted">Jurisdiction:</span>
-                  <span className="font-bold text-action-primary">Republic of Ghana</span>
-                </div>
-              </div>
-
               {/* Consultation Office Visual Card */}
               <div className="relative h-44 w-full rounded-card overflow-hidden border border-line bg-surface-2">
                 <Image

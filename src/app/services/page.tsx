@@ -6,6 +6,8 @@ import {
   Cloud,
   Cpu,
   TrendingUp,
+  FlaskConical,
+  Boxes,
   ArrowRight,
   ArrowUpRight,
   CheckCircle2,
@@ -15,7 +17,7 @@ import { tone, BrandStripes } from '@/components/Brand';
 export const metadata: Metadata = {
   title: { absolute: 'Our Technical Capabilities | Services | Techverge Africa Ltd' },
   description:
-    'Fully licensed and structured to deliver end-to-end digital transformation: Software Development, Cloud Computing, AI & Data Solutions, and Strategic IT Consultancy.',
+    'Fully licensed and structured to deliver end-to-end digital transformation: Software Development, Cloud Computing, AI & Data Solutions, Strategic IT Consultancy, Research & Development, and Software Solutions.',
 };
 
 const coreServices = [
@@ -107,6 +109,50 @@ const coreServices = [
       'Change management support and executive digital advisory',
     ],
   },
+  {
+    number: '05',
+    id: 'research-development',
+    title: 'Research & Development',
+    category: 'Applied Research',
+    icon: FlaskConical,
+    image: '/images/services/research-development.webp',
+    imagePosition: 'center 35%',
+    copy: 'Research sits at the core of everything we build. We study African markets, infrastructure realities and user behaviour, then prototype and test new technologies before they reach production, so the solutions we deliver are proven for the context they will run in.',
+    focusAreas: [
+      'Applied Technology Research',
+      'Prototyping & Proof of Concept',
+      'Feasibility Studies',
+      'Innovation Partnerships',
+    ],
+    deliverables: [
+      'Market, user and infrastructure research for African operating contexts',
+      'Rapid prototypes and proof-of-concept builds to validate ideas early',
+      'Technical feasibility reports and emerging-technology evaluations',
+      'Joint research programmes with institutions, startups and enterprises',
+    ],
+  },
+  {
+    number: '06',
+    id: 'software-solutions',
+    title: 'Software Solutions',
+    category: 'Ready-to-Deploy Products',
+    icon: Boxes,
+    image: '/images/services/software-solutions.webp',
+    imagePosition: 'center center',
+    copy: 'Not every challenge needs to be built from scratch. We provide ready-to-deploy software solutions that we configure, customise and support for your organisation, so you get proven systems running quickly with a local team behind them.',
+    focusAreas: [
+      'Business Management Systems',
+      'SaaS Platforms',
+      'Solution Customisation',
+      'Implementation & Support',
+    ],
+    deliverables: [
+      'Configured business systems for finance, inventory, HR and operations',
+      'Cloud-hosted SaaS platforms with secure user and role management',
+      'Integration with your existing tools, payments and data sources',
+      'Onboarding, staff training and ongoing maintenance support',
+    ],
+  },
 ];
 
 export default function ServicesPage() {
@@ -129,7 +175,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── THE CORE 4 SERVICE CARDS ── */}
+      {/* ── THE CORE SERVICE CARDS ── */}
       <section className="py-16 md:py-24 bg-surface-0 border-b border-line">
         <div className="container-site space-y-20">
           {coreServices.map((service, index) => {
@@ -174,7 +220,7 @@ export default function ServicesPage() {
                             {service.category}
                           </span>
                           <span className="text-sm text-ink-muted">
-                            Core Discipline {service.number} / 04
+                            Core Discipline {service.number} / {String(coreServices.length).padStart(2, '0')}
                           </span>
                         </div>
                       </div>

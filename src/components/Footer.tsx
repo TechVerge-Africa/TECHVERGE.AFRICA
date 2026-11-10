@@ -22,14 +22,14 @@ const linkCls =
   'text-white/80 hover:text-white underline-offset-4 decoration-brand-green-bright decoration-2 hover:underline transition-colors';
 
 function ColumnHeading({ children }: { children: React.ReactNode }) {
-  return <h2 className="font-heading text-base font-semibold text-white">{children}</h2>;
+  return <h2 className="font-oswald text-lg font-semibold uppercase tracking-[0.04em] text-white">{children}</h2>;
 }
 
 export default function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="relative overflow-hidden bg-brand-navy font-sans text-base text-white/80">
+    <footer className="relative overflow-hidden bg-brand-navy font-roboto text-base text-white/80">
       <BrandBar className="h-1.5" />
 
       {/* Cover motif: slanted stripes in the top-right corner */}

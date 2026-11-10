@@ -13,9 +13,14 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // DM Sans for text, Sora for headings. Arial is the documented fallback.
+        // DM Sans for text. Arial is the documented fallback.
         sans: ["var(--font-dm-sans)", "Arial", "system-ui", "sans-serif"],
-        heading: ["var(--font-sora)", "Arial", "system-ui", "sans-serif"],
+        // Oswald for every title and heading across the site
+        heading: ["var(--font-oswald)", "Arial Narrow", "Arial", "sans-serif"],
+        // Sora stays for the logo wordmark only
+        brand: ["var(--font-sora)", "Arial", "system-ui", "sans-serif"],
+        oswald: ["var(--font-oswald)", "Arial Narrow", "Arial", "sans-serif"],
+        roboto: ["var(--font-roboto)", "Arial", "system-ui", "sans-serif"],
       },
       colors: {
         brand: {

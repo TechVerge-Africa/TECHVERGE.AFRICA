@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { DM_Sans, Sora } from 'next/font/google';
+import { DM_Sans, Oswald, Roboto, Sora } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,9 +7,12 @@ import WhatsAppBot from '@/components/WhatsAppBot';
 import PageLoader from '@/components/PageLoader';
 import RevealObserver from '@/components/RevealObserver';
 
-// Brand typefaces: Sora for headings (Semi Bold, Bold), DM Sans for text (Regular, Medium, Bold).
+// Typefaces: Oswald for all titles and headings, DM Sans for text, Sora for the logo wordmark.
 const sora = Sora({ subsets: ['latin'], weight: ['400', '600', '700'], variable: '--font-sora', display: 'swap' });
 const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-dm-sans', display: 'swap' });
+// Roboto: text inside the executive cards (About) and the footer.
+const oswald = Oswald({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-oswald', display: 'swap' });
+const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-roboto', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://techverge.africa'),
@@ -72,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sora.variable} ${dmSans.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${sora.variable} ${dmSans.variable} ${oswald.variable} ${roboto.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-surface-0 text-ink font-sans antialiased flex flex-col">
         {/* Skip to main content for accessibility */}
         <a

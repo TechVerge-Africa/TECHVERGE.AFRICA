@@ -26,7 +26,7 @@ export default function Logo({ size = 32, tone = 'dark', priority = false }: Log
     <span className="inline-flex items-center" style={{ gap: Math.round(width / 2) }}>
       <Image src="/images/logo.png" alt="" width={width} height={height} priority={priority} className="shrink-0" />
       <span
-        className={`font-heading leading-none whitespace-nowrap ${tone === 'light' ? 'text-white' : 'text-ink'}`}
+        className={`font-brand tracking-normal leading-none whitespace-nowrap ${tone === 'light' ? 'text-white' : 'text-ink'}`}
         style={{ fontSize }}
       >
         <span className="font-bold">Techverge</span>{' '}

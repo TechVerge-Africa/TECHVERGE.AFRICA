@@ -32,6 +32,16 @@ const quickOptions = [
     prompt: 'Hello Techverge Africa, I would like to request an IT Audit, Architecture Roadmap, or Digital Transformation consultation.',
   },
   {
+    id: 'research',
+    label: '🔬 Research & Development',
+    prompt: 'Hello Techverge Africa, I would like to discuss a Research & Development project (prototyping, feasibility study, or innovation partnership).',
+  },
+  {
+    id: 'solutions',
+    label: '🧩 Software Solutions',
+    prompt: 'Hello Techverge Africa, I would like to learn about your ready-to-deploy Software Solutions (business systems or SaaS platforms).',
+  },
+  {
     id: 'consultation',
     label: '📅 Book a Discovery Consultation',
     prompt: 'Hello Techverge Africa, I would like to schedule an engineering discovery consultation to discuss our project requirements.',

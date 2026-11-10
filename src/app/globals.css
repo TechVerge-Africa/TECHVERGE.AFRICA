@@ -20,7 +20,7 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Sora for headings: Semi Bold and Bold */
+  /* Oswald for every heading and title */
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-semibold text-ink;
   }

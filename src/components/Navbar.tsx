@@ -48,7 +48,7 @@ export default function Navbar() {
 
   return (
     // Header: sticky and white with a thin bottom line
-    <header className="sticky top-0 z-50 w-full bg-surface-1 border-b border-line">
+    <header className="sticky top-0 z-50 w-full bg-surface-1 border-b border-line font-heading tracking-[0.02em]">
       {/* Brand strip: blue, orange and green converging, as in the V mark */}
       <BrandBar className="h-1.5" />
       <div className="container-site relative">
@@ -59,7 +59,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav aria-label="Main" className="hidden md:flex items-center gap-1 lg:gap-2">
+          <nav aria-label="Main" className="hidden lg:flex items-center gap-1 lg:gap-2">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
@@ -67,7 +67,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   aria-current={active ? 'page' : undefined}
-                  className={`group relative px-3.5 py-2 text-[15px] font-medium rounded-button transition-colors ${
+                  className={`group relative whitespace-nowrap px-2.5 lg:px-3.5 py-2 text-base lg:text-lg font-medium rounded-button transition-colors ${
                     active ? 'text-action-primary' : 'text-ink-muted hover:text-ink'
                   }`}
                 >
@@ -75,7 +75,7 @@ export default function Navbar() {
                   {/* Active: Verge Blue underline with an orange tip. Hover: Growth Green. */}
                   <span
                     aria-hidden="true"
-                    className={`absolute left-3.5 right-3.5 -bottom-[13px] md:-bottom-[17px] h-[3px] rounded-full transition-transform duration-200 ease-out ${
+                    className={`absolute left-2.5 right-2.5 lg:left-3.5 lg:right-3.5 -bottom-[13px] md:-bottom-[17px] h-[3px] rounded-full transition-transform duration-200 ease-out ${
                       active
                         ? 'bg-brand-blue'
                         : 'bg-brand-green scale-x-0 group-hover:scale-x-100 origin-left'
@@ -84,7 +84,7 @@ export default function Navbar() {
                   {active && (
                     <span
                       aria-hidden="true"
-                      className="absolute right-3.5 -bottom-[13px] md:-bottom-[17px] h-[3px] w-2 rounded-full bg-brand-orange"
+                      className="absolute right-2.5 lg:right-3.5 -bottom-[13px] md:-bottom-[17px] h-[3px] w-2 rounded-full bg-brand-orange"
                     />
                   )}
                 </Link>
@@ -93,10 +93,10 @@ export default function Navbar() {
           </nav>
 
           {/* Header CTA: blue button */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-button bg-action-primary text-white font-semibold text-[15px] hover:bg-action-hover transition-colors"
+              className="inline-flex items-center gap-2 whitespace-nowrap px-4 lg:px-5 py-2.5 rounded-button bg-action-primary text-white font-semibold text-base lg:text-lg hover:bg-action-hover transition-colors"
             >
               <span>Book a Consultation</span>
               <ArrowRight size={16} strokeWidth={1.75} aria-hidden="true" />
@@ -107,7 +107,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden -mr-2.5 p-2.5 rounded-button text-ink hover:bg-surface-2 transition-colors"
+            className="lg:hidden -mr-2.5 p-2.5 rounded-button text-ink hover:bg-surface-2 transition-colors"
             aria-label={isMobileOpen ? 'Close Menu' : 'Open Menu'}
             aria-expanded={isMobileOpen}
           >
@@ -118,7 +118,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {isMobileOpen && (
-        <div className="fixed inset-x-0 bottom-0 top-[70px] z-40 bg-surface-1 md:hidden flex flex-col justify-between px-4 pt-4 pb-8 overflow-y-auto border-t border-line">
+        <div className="fixed inset-x-0 bottom-0 top-[70px] md:top-[78px] z-40 bg-surface-1 lg:hidden flex flex-col justify-between px-4 pt-4 pb-8 overflow-y-auto border-t border-line">
           <nav aria-label="Mobile" className="flex flex-col">
             {navLinks.map((link) => {
               const active = isActive(link.href);
@@ -128,7 +128,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setIsMobileOpen(false)}
                   aria-current={active ? 'page' : undefined}
-                  className={`flex items-center justify-between py-4 border-b border-line font-heading text-xl font-semibold transition-colors ${
+                  className={`flex items-center justify-between py-4 border-b border-line font-heading text-2xl font-semibold transition-colors ${
                     active ? 'text-action-primary border-l-4 border-l-brand-blue pl-3' : 'text-ink hover:text-brand-green-deep'
                   }`}
                 >

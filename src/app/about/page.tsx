@@ -98,22 +98,6 @@ export default function AboutPage() {
                   By treating software architecture, enterprise cloud, and practical artificial intelligence as interconnected systems, we help organizations break through infrastructural barriers and achieve sustained operational sovereignty.
                 </p>
               </div>
-
-              {/* Official Credibility Box */}
-              <div className="p-5 rounded-card bg-surface-1 border border-line space-y-2 text-sm text-ink">
-                <div className="flex items-center justify-between">
-                  <span className="text-ink-muted">Corporate Entity:</span>
-                  <span className="font-bold text-ink">Techverge Africa Ltd</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-ink-muted">Corporate Status:</span>
-                  <span className="font-bold text-action-primary">Registered Private Limited Company</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-ink-muted">Headquarters:</span>
-                  <span className="text-ink font-semibold">Kumasi, Ghana</span>
-                </div>
-              </div>
             </div>
 
             {/* Visual Photography Column (5 cols) */}
@@ -200,7 +184,7 @@ export default function AboutPage() {
             {executiveLeadership.map((member, i) => (
               <div
                 key={member.name}
-                className={`bg-surface-0 border border-line ${tone(i).top} rounded-card overflow-hidden flex flex-col justify-between hover:-translate-y-0.5 hover:shadow-soft motion-reduce:hover:translate-y-0 transition-[transform,box-shadow,background-color] ease-out duration-200 group`}
+                className={`font-roboto bg-surface-0 border border-line ${tone(i).top} rounded-card overflow-hidden flex flex-col justify-between hover:-translate-y-0.5 hover:shadow-soft motion-reduce:hover:translate-y-0 transition-[transform,box-shadow,background-color] ease-out duration-200 group`}
               >
                 <div>
                   <div className="relative w-full aspect-square overflow-hidden bg-surface-2">
@@ -217,14 +201,14 @@ export default function AboutPage() {
                     </span>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="text-h3 mb-0.5">
+                  <div className="p-6 [container-type:inline-size]">
+                    <h3 className="font-oswald text-[clamp(1.375rem,8.6cqi,2.25rem)] leading-tight whitespace-nowrap font-semibold mb-1 uppercase tracking-[0.04em] text-center">
                       {member.name}
                     </h3>
-                    <p className="text-sm font-semibold text-action-primary mb-1">
+                    <p className="font-oswald text-base font-medium tracking-[0.02em] text-action-primary mb-1 text-center">
                       {member.role}
                     </p>
-                    <p className="text-xs text-ink-muted mb-3 font-medium">
+                    <p className="text-xs text-ink-muted mb-3 font-medium text-center">
                       {member.focus}
                     </p>
                     <p className="text-base text-ink-muted leading-relaxed">

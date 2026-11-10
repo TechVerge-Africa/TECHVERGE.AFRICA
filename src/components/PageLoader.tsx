@@ -127,7 +127,7 @@ export default function PageLoader() {
           {/* The logo, unchanged, with the lock-up text */}
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2.5">
             <Image src="/images/logo.png" alt="" width={62} height={44} priority />
-            <span className="font-heading text-[13px] leading-none text-ink whitespace-nowrap">
+            <span className="font-brand text-[13px] leading-none text-ink whitespace-nowrap">
               <span className="font-bold">Techverge</span> <span className="text-ink-muted">Africa</span>
             </span>
           </div>

@@ -5,6 +5,8 @@ import {
   Cloud,
   Cpu,
   TrendingUp,
+  FlaskConical,
+  Boxes,
   ShieldCheck,
   Layers,
   ArrowRight,
@@ -47,7 +49,7 @@ const corePillars = [
 ];
 
 /**
- * Core 4 Services Preview
+ * Core Services Preview
  */
 const previewServices = [
   {
@@ -81,6 +83,22 @@ const previewServices = [
     desc: 'Tech stack audits, digital transformation roadmaps, cybersecurity reviews, and enterprise systems design.',
     link: '/services#it-consultancy',
     icon: TrendingUp,
+  },
+  {
+    number: '05',
+    id: 'research-dev',
+    title: 'Research & Development',
+    desc: 'Applied technology research, rapid prototypes, feasibility studies, and innovation partnerships built for African contexts.',
+    link: '/services#research-development',
+    icon: FlaskConical,
+  },
+  {
+    number: '06',
+    id: 'software-solutions',
+    title: 'Software Solutions',
+    desc: 'Ready-to-deploy business systems and SaaS platforms, configured, integrated, and supported by a local team.',
+    link: '/services#software-solutions',
+    icon: Boxes,
   },
 ];
 
@@ -244,7 +262,7 @@ export default function HomePage() {
 
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 3. CAPABILITIES / CORE 4 PREVIEW                                   */}
+      {/* 3. CAPABILITIES / CORE PREVIEW                                     */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-16 md:py-24 bg-surface-1 border-b border-line">
         <div className="container-site">
@@ -267,7 +285,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {previewServices.map((svc, i) => {
               const Icon = svc.icon;
               return (

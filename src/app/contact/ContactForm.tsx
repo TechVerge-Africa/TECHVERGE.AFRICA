@@ -8,6 +8,8 @@ const serviceOptions = [
   'Cloud Computing & Infrastructure',
   'Artificial Intelligence & Data Solutions',
   'Strategic IT Consultancy',
+  'Research & Development',
+  'Software Solutions',
   'General Inquiry / Partnership',
 ];
 
